@@ -1,11 +1,11 @@
-# Fullscreen/Immersive Gesture Tweaks for Android 10-12
+# Fullscreen/Immersive Gesture Tweaks for Android 10-13
 
 ![](https://i.imgur.com/vcXAreJ.png)
 
-This Magisk Module lets you tweak Android 10-12's gestures.
+This Magisk Module lets you tweak Android 10-13's gestures.
 
 ## Requirements
-- Android 10-12
+- Android 10-13
 - Magisk 20+
 
 ## Installation 
@@ -93,6 +93,8 @@ This Magisk Module lets you tweak Android 10-12's gestures.
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v12.0
+- Fixed the Gcam lag when switching modes
 ### v11.0
 - Preemptive Android 13 support (untested) 
 ### v10.0
