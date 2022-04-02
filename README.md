@@ -14,6 +14,10 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 3. Reboot
 4. Enjoy!
 
+## Terminal Setup
+ Run on a terminal app the following command 
+ su -c hn
+
 ### Translation
  If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email
 
@@ -93,6 +97,10 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v13.0
+- Full AAPT rewrite 
+- Added terminal config tool for changing each navbar parameter
+ (To use it run the following on a terminal app su -c hn)
 ### v12.0
 - Fixed the Gcam lag when switching modes
 ### v11.0

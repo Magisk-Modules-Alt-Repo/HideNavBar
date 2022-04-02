@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    android:compileSdkVersion="31"
+    android:compileSdkVersionCodename="12"
+    package="com.android.internal.systemui.navbar.gestural"
+    platformBuildVersionCode="31"
+    platformBuildVersionName="12"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <overlay
+        android:priority="1"
+        android:targetPackage="android"
+        android:category="com.android.internal.navigation_bar_mode" />
+    <application
+        android:label="@string/navigation_bar_mode_title"
+        android:hasCode="false"
+        android:extractNativeLibs="false" />
+</manifest>

@@ -1,0 +1,101 @@
+#!/system/bin/sh
+	
+HNV=/data/adb/modules/HideNavBar
+RES="$HNV/Mods/Qtmp/res/values/dimens.xml"
+cp -rf "$HNV"/Mods/QS/* "$HNV"/Mods/Qtmp/
+chmod 755 "$HNV/tools/zipsigner"
+chmod 755 "$HNV/aapt"
+OP=$(find /system/overlay /product/overlay /vendor/overlay -type d -iname "navigationbarmodegestural" | cut -d 'N' -f1)
+
+#Detect system language for translation 
+LANG=$(settings get system system_locales)
+LANGS=$(echo ${LANG:0:2} )
+LNG="$HNV"/Lang/"$LANGS"/"$LANGS"
+if [ -f $HNV/Lang/"$LANGS"/"$LANGS"1.txt ]; then
+    :
+else
+    LANGS=en
+fi
+
+
+echo "Fullscreen/Immersive module setup"
+
+echo "Enter Gesture Sensitivity"
+echo "(Min 10.0, default 32.0, Module default 18.0)" 
+read -r GS
+if [ "$GS" = "" ]; then
+    # $var is empty
+echo " "
+else
+sed -i s/0.2/"$GS"/g "$RES"
+fi
+
+echo "What Navbar height?"
+read -r BH
+if [ "$BH" = "" ]; then
+    # $var is empty
+echo " "
+else
+sed -i s/0.3/"$BH"/g "$RES"
+fi
+
+echo "What Keyboard bar height?"
+read -r FH
+if [ "$FH" = "" ]; then
+    # $var is empty
+echo " "
+else
+sed -i s/0.1/"$FH"/g "$RES"
+fi
+
+if [ "$FH" = 0.0 ] ; then
+ : 
+else
+echo "Hide pill? (yes or no, in lowercase)"
+read -r HB
+ if [ "$HB" = yes ] ; then
+ cp -rf "$HNV"/Mods/HP/* "$HNV"/system"$OP"
+ else
+ rm -rf "$HNV"/system"$OP"/pillhide.apk
+ fi
+fi
+
+if [ "$FH" = 0.0 ] ; then
+ : 
+else
+echo "Hide keyboard buttons? (yes or no, in lowercase)"
+read -r HKB
+ if [ "$HKB" = yes ] ; then
+ cp -rf "$HNV"/Mods/HKB/* "$HNV"/system"$OP"
+ else
+ rm -rf "$HNV"/system"$OP"/HKN.apk
+ fi
+fi
+
+echo "Disable the back gesture? (yes or no, in lowercase)"
+read -r DB
+ if [ "$DB" = yes ] ; then
+ :
+ else
+ settings delete secure back_gesture_inset_scale_left
+ settings delete secure back_gesture_inset_scale_right
+ fi
+
+if [ "$DB" = yes ] ; then
+echo "Left only (type l) Both sides (type b)"
+read -r SD
+  if [ "$SD" = l ] ; then
+  settings put secure back_gesture_inset_scale_left -1
+  else
+  settings put secure back_gesture_inset_scale_left -1
+  settings put secure back_gesture_inset_scale_right -1
+  fi
+else
+ :
+fi
+ 
+$HNV/aapt p -f -v -M "$HNV/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$HNV/Mods/Qtmp/res" -F "$HNV"/unsigned.apk >/dev/null
+$HNV/tools/zipsigner "$HNV"/unsigned.apk "$HNV"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+cp -rf "$HNV"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk "$HNV"/system/product/overlay/NavigationBarModeGestural/
+
+echo "To apply changes make sure to reboot"
