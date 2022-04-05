@@ -9,7 +9,7 @@ chmod +x "$MODPATH"/tools/*
 cp -af "$MODPATH"/tools/$AAPT "$MODPATH"/aapt
 cp -rf "$MODPATH"/Mods/QS/* "$MODPATH"/Mods/Qtmp/
 mkdir -p "$MODPATH"/Mods/Q/NavigationBarModeGestural/
-
+mkdir -p "$MODPATH"/Mods/Qtmp/
 
 if [ -d /system/xbin/ ] ; then
     mkdir -p "$MODPATH"/system/xbin/
@@ -132,6 +132,10 @@ RES="$MODPATH/Mods/Qtmp/res/values/dimens.xml"
 sed -i s/0.3/"$BH"/g "$RES"
 sed -i s/0.1/"$FH"/g "$RES"
 sed -i s/0.2/"$GS"/g "$RES"
+mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
+mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
 
 #Detect original overlay location
 OP=$(find /system/overlay /product/overlay /vendor/overlay -type d -iname "navigationbarmodegestural" | cut -d 'N' -f1)

@@ -5,18 +5,7 @@ RES="$HNV/Mods/Qtmp/res/values/dimens.xml"
 cp -rf "$HNV"/Mods/QS/* "$HNV"/Mods/Qtmp/
 chmod 755 "$HNV/tools/zipsigner"
 chmod 755 "$HNV/aapt"
-OP=$(find /system/overlay /product/overlay /vendor/overlay -type d -iname "navigationbarmodegestural" | cut -d 'N' -f1)
-
-#Detect system language for translation 
-LANG=$(settings get system system_locales)
-LANGS=$(echo ${LANG:0:2} )
-LNG="$HNV"/Lang/"$LANGS"/"$LANGS"
-if [ -f $HNV/Lang/"$LANGS"/"$LANGS"1.txt ]; then
-    :
-else
-    LANGS=en
-fi
-
+ASH_STANDALONE=1
 
 echo "Fullscreen/Immersive module setup"
 
@@ -31,6 +20,7 @@ sed -i s/0.2/"$GS"/g "$RES"
 fi
 
 echo "What Navbar height?"
+echo "(0.0 Module default, 18.0 Android default)"
 read -r BH
 if [ "$BH" = "" ]; then
     # $var is empty
@@ -40,6 +30,8 @@ sed -i s/0.3/"$BH"/g "$RES"
 fi
 
 echo "What Keyboard bar height?"
+echo "(0.0 Fullscreen, 48.0 immersive)"
+echo "(18.0 Immersive+Small keyboard bar)"
 read -r FH
 if [ "$FH" = "" ]; then
     # $var is empty
@@ -93,9 +85,12 @@ read -r SD
 else
  :
 fi
+
+cp -rf "$HNV"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
+cp -rf "$HNV"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
  
 $HNV/aapt p -f -v -M "$HNV/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$HNV/Mods/Qtmp/res" -F "$HNV"/unsigned.apk >/dev/null
-$HNV/tools/zipsigner "$HNV"/unsigned.apk "$HNV"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
-cp -rf "$HNV"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk "$HNV"/system/product/overlay/NavigationBarModeGestural/
+/data/adb/magisk/busybox sh /data/adb/modules/HideNavBar/tools/zipsigner "$HNV"/unsigned.apk "$HNV"/Mods/Qtmp/NavigationBarModeGesturalOverlay.apk
+cp -rf "$HNV"/Mods/Qtmp/NavigationBarModeGesturalOverlay.apk "$HNV"/system/product/overlay/NavigationBarModeGestural/
 
 echo "To apply changes make sure to reboot"
