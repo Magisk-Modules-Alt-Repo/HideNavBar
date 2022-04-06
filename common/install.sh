@@ -138,12 +138,20 @@ mkdir -p "$MODPATH"/Mods/Qtmp/res/values-440dpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xhdpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxhdpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxxhdpi/
+mkdir -p "$MODPATH"/Mods/MIUI/res/values/
+mkdir -p "$MODPATH"/Mods/MIUI/res/values-440dpi/
+mkdir -p "$MODPATH"/Mods/MIUI/res/values-xxhdpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-440dpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-xhdpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-xxhdpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-xxxhdpi/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/MIUI/res/values-xxhdpi/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/MIUI/res/values-440dpi/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/MIUI/res/values/
+
+
 
 
 #Detect original overlay location
@@ -152,7 +160,9 @@ mkdir -p "$MODPATH"/system"$OP"
 
 #Build and sign overlays
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/Qtmp/res" -F "$MODPATH"/unsigned.apk >/dev/null
+"$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/MIUI/res" -F "$MODPATH"/miui.apk >/dev/null
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+"$MODPATH"/tools/zipsigner "$MODPATH"/miui.apk "$MODPATH"/Mods/Q/GestureLineOverlay.apk
 
 #Install overlays 
 cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"

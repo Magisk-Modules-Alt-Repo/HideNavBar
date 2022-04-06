@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="23" android:compileSdkVersionCodename="6.0-2438415" android:versionCode="1" android:versionName="1.0" package="com.android.systemui.gesture.line.overlay" platformBuildVersionCode="28" platformBuildVersionName="9">
+	<uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
+	<overlay android:category="com.android.internal.navigation_bar_mode" android:priority="2" android:targetPackage="android" />
+	<application android:extractNativeLibs="false" android:hasCode="false" android:label="@string/navigation_bar_mode_title" />
+</manifest>
