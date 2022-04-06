@@ -137,7 +137,7 @@ mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-440dpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xhdpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxhdpi/
-mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxxdpi/
+mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxxhdpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-440dpi/
