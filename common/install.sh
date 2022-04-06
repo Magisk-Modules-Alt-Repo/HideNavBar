@@ -11,7 +11,7 @@ cp -rf "$MODPATH"/Mods/QS/* "$MODPATH"/Mods/Qtmp/
 mkdir -p "$MODPATH"/Mods/Q/NavigationBarModeGestural/
 mkdir -p "$MODPATH"/Mods/Qtmp/
 
-if [ -d /system/xbin/ ] ; then
+if [ -d /system/xbin/ ] && [ ! -f /system/xbin/empty ] ; then
     mkdir -p "$MODPATH"/system/xbin/
     cp -rf "$MODPATH"/tools/hn "$MODPATH"/system/xbin/
 else
