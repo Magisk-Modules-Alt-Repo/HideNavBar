@@ -134,8 +134,17 @@ sed -i s/0.1/"$FH"/g "$RES"
 sed -i s/0.2/"$GS"/g "$RES"
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
-cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
-cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
+mkdir -p "$MODPATH"/Mods/Qtmp/res/values-440dpi/
+mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xhdpi/
+mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxhdpi/
+mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxxdpi/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-440dpi/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-xhdpi/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-xxhdpi/
+cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-xxxhdpi/
+
 
 #Detect original overlay location
 OP=$(find /system/overlay /product/overlay /vendor/overlay -type d -iname "navigationbarmodegestural" | cut -d 'N' -f1)

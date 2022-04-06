@@ -5,7 +5,7 @@
     <dimen name="navigation_bar_gesture_height">0.2dp</dimen>
     <dimen name="navigation_bar_height">0.3dip</dimen>
     <dimen name="navigation_bar_height_portrait">0.3dip</dimen>
-    <dimen name="navigation_bar_height_landscape">0.0dp</dimen>
+    <dimen name="navigation_bar_height_landscape">0.3dp</dimen>
     <dimen name="navigation_bar_width">0.0dp</dimen>
     <dimen name="navigation_bar_frame_height_landscape">0.0dp</dimen>
 </resources>

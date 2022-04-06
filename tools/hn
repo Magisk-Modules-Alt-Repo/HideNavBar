@@ -86,8 +86,12 @@ else
  :
 fi
 
-cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/Qtmp/res/values-sw900dp/
-cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/Qtmp/res/values-sw600dp/
+cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-sw900dp/
+cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-sw600dp/
+cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-440dpi/
+cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-xhdpi/
+cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-xxhdpi/
+cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-xxxhdpi/
  
 $HNV/aapt p -f -v -M "$HNV/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$HNV/Mods/Qtmp/res" -F "$HNV"/unsigned.apk >/dev/null
 /data/adb/magisk/busybox sh /data/adb/modules/HideNavBar/tools/zipsigner "$HNV"/unsigned.apk "$HNV"/Mods/Qtmp/NavigationBarModeGesturalOverlay.apk
