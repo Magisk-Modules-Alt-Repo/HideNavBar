@@ -98,8 +98,8 @@ cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/MIUI/res/values/
  
 "$HNV"/aapt p -f -v -M "$HNV/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$HNV/Mods/Qtmp/res" -F "$HNV"/unsigned.apk >/dev/null
 "$HNV"/aapt p -f -v -M "$HNV/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$HNV/Mods/MIUI/res" -F "$HNV"/miui.apk >/dev/null
-/data/adb/magisk/busybox sh /data/adb/modules/HideNavBar/tools/zipsigner "$HNV"/unsigned.apk "$HNV"/Mods/Qtmp/NavigationBarModeGesturalOverlay.apk
+/data/adb/magisk/busybox sh /data/adb/modules/HideNavBar/tools/zipsigner "$HNV"/unsigned.apk "$HNV"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
 /data/adb/magisk/busybox sh /data/adb/modules/HideNavBar/tools/zipsigner "$HNV"/miui.apk "$HNV"/Mods/Q/GestureLineOverlay.apk
-cp -rf "$HNV"/Mods/Q/* "$HNV"/system/product/overlay/NavigationBarModeGestural/
+cp -rf "$HNV"/Mods/Q/* "$HNV"/system/product/overlay/
 
 echo "To apply changes make sure to reboot"
