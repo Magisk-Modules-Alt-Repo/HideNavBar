@@ -97,6 +97,8 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v16.1
+- Fix the Terminal Config tool
 ### v16.0
 - Proper MIUI 13 support
 ### v15.0
