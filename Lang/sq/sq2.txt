@@ -1,0 +1,3 @@
+		Të fshihet pilula dhe të mbahet lartësia/hapësira e tastierës?
+
+		Vol+ = Po , Vol- = Jo (E parazgjedhur)
