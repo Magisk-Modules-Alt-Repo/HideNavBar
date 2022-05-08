@@ -1,0 +1,4 @@
+		Dëshironi të çaktivizoni gjestin e pasmë?
+
+		Vol+ = Yes , Vol- = Jo
+
