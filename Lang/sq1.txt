@@ -1,0 +1,5 @@
+		----- Gjestet me ekran të plotë/zhytëse ------
+
+		Zgjidhni mënyrën tuaj të gjesteve
+
+		Vol+ = Ekran i plotë, Vol- = zhytëse
