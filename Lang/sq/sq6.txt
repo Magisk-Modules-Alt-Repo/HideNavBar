@@ -1,0 +1,4 @@
+		Cila anë të çaktivizohet gjesti i pasmë?
+
+		Vol+ = Vetëm majtas (për menutë anësore) , Vol- = Majtas dhe djathtas (për aplikacionet me gjeste)
+
