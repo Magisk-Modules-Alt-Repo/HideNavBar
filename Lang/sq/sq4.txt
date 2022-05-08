@@ -1,0 +1,4 @@
+		Zgjidh ndjeshmërinë e gjestit.
+
+		Vol+ = E ulët (E parazgjedhur nga Moduli) , Vol- = E lartë (E parazgjedhur nga Android)
+
