@@ -1,0 +1,3 @@
+		Të zvogëlohet madhësia e shiritit të tastierës?
+
+		Vol+ = Po , Vol- = Jo (E parazgjedhur)
