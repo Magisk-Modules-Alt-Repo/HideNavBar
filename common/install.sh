@@ -2,6 +2,21 @@
 # Custom Logic
 ##########################################################################################
 
+if [ -n "$MMM_EXT_SUPPORT" ]; then
+  ui_print "#!useExt"
+  mmm_exec() {
+    ui_print "$(echo "#!$@")"
+  }
+else
+  mmm_exec() { true; }
+  abort "! This module need to be executed in Fox's Magisk Module Manager"
+  exit 1
+fi
+
+ui_replace() {
+  mmm_exec setLastLine "$1"
+}
+
 #Detect and use compatible AAPT
 chmod +x "$MODPATH"/tools/*
 [ "$($MODPATH/tools/aapt v)" ] && AAPT=aapt
@@ -106,8 +121,8 @@ if [ "$API" -ge 30 ] ; then
      DBG=true
      else
      DBG=false
-     settings delete secure back_gesture_inset_scale_left
-     settings delete secure back_gesture_inset_scale_right
+     settings delete secure back_gesture_inset_scale_left &>/dev/null
+     settings delete secure back_gesture_inset_scale_right &>/dev/null
      fi
 fi     
 
@@ -115,10 +130,10 @@ fi
 if [ "$DBG" = true ] ; then
      cat "$LNG"6.txt
      if $VKSEL; then
-     settings put secure back_gesture_inset_scale_left -1
+     settings put secure back_gesture_inset_scale_left -1 &>/dev/null
      else
-     settings put secure back_gesture_inset_scale_left -1
-     settings put secure back_gesture_inset_scale_right -1
+     settings put secure back_gesture_inset_scale_left -1 &>/dev/null
+     settings put secure back_gesture_inset_scale_right -1 &>/dev/null
      fi
 fi
 
@@ -159,10 +174,21 @@ OP=$(find /system/overlay /product/overlay /vendor/overlay -type d -iname "navig
 mkdir -p "$MODPATH"/system"$OP"
 
 #Build and sign overlays
+mmm_exec setLastLine "- Compiling Overlays"
+sleep 1
+mmm_exec showLoading
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/Qtmp/res" -F "$MODPATH"/unsigned.apk >/dev/null
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/MIUI/res" -F "$MODPATH"/miui.apk >/dev/null
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
 "$MODPATH"/tools/zipsigner "$MODPATH"/miui.apk "$MODPATH"/Mods/Q/GestureLineOverlay.apk
+sleep 1
 
-#Install overlays 
+#Install overlays
 cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"
+mmm_exec setLastLine "- Installing Overlays"
+sleep 1
+mmm_exec setLastLine "- Complete"
+mmm_exec hideLoading
+
+ui_print "- Telegram Support group (top right corner)"
+mmm_exec setSupportLink "https://t.me/dnmgsk"
