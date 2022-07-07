@@ -97,6 +97,8 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v16.4
+- Removed unnecessary waiting during module install 
 ### v16.3
 - Added Fox Manager Extension support (support link shortcut when installing the module)
 - Try and improve the volume selector delay a bit
