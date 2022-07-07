@@ -182,4 +182,4 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 ### v7.0
 - Switch to the MMT-EX template and added immersive gestures by [samchugit](https://github.com/samchugit/Immersive_Gestural_Nav_Bar) as an option 
 
-For older changelogs check here 
+For older changelogs check [here](https://github.com/Magisk-Modules-Alt-Repo/HideNavBar/blob/master/OC.md)
