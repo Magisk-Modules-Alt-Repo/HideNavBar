@@ -19,11 +19,11 @@ This Magisk Module lets you tweak Android 10-13's gestures.
  su -c hn
 
 ### Translation
- If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email
+ If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email, omit special symbols such as á,ã
 
 ## Disclaimer
 - Any option not working is due to incompatibility with your current ROM (there's little i can do about it)
-- Any issues related to GCam after installing the module are outside my control 
+- For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
 - Automatic navbar coloring doesn't work on Android 11+
 
 ## Links
@@ -175,9 +175,7 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - Fix fullscreen gestures installation (apologies for the inconvenience)
 ### v7.1
 - Added new options during install
-
 - Small keyboard bar (for immersive mode): Allows you to have less spacing underneath the keyboard
-
 - Hide Pill (for immersive mode): Allows you to have a near fullscreen experience while still keeping the spacing underneath the keyboard
 ### v7.0
 - Switch to the MMT-EX template and added immersive gestures by [samchugit](https://github.com/samchugit/Immersive_Gestural_Nav_Bar) as an option 
