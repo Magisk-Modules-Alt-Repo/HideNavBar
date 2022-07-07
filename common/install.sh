@@ -175,13 +175,11 @@ mkdir -p "$MODPATH"/system"$OP"
 
 #Build and sign overlays
 mmm_exec setLastLine "- Compiling Overlays"
-sleep 1
 mmm_exec showLoading
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/Qtmp/res" -F "$MODPATH"/unsigned.apk >/dev/null
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/MIUI/res" -F "$MODPATH"/miui.apk >/dev/null
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
 "$MODPATH"/tools/zipsigner "$MODPATH"/miui.apk "$MODPATH"/Mods/Q/GestureLineOverlay.apk
-sleep 1
 
 #Install overlays
 cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"
