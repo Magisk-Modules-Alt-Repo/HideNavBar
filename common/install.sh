@@ -184,7 +184,6 @@ mmm_exec showLoading
 #Install overlays
 cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"
 mmm_exec setLastLine "- Installing Overlays"
-sleep 1
 mmm_exec setLastLine "- Complete"
 mmm_exec hideLoading
 
