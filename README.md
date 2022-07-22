@@ -18,9 +18,6 @@ This Magisk Module lets you tweak Android 10-13's gestures.
  Run on a terminal app the following command 
  su -c hn
 
-### Translation
- If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email, omit special symbols such as á,ã
-
 ## Disclaimer
 - Any option not working is due to incompatibility with your current ROM (there's little i can do about it)
 - For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
@@ -78,6 +75,9 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 
 
 - Additionally back gestures can be disabled on Android 11-12 for either left side only (to access side menus on apps) or both sides (if one wishes to remap the back gestures with other apps)
+
+### Translation
+ If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email, omit special symbols such as á,ã
 
 ## Special Thanks
 - [skittles9823](https://github.com/skittles9823) for his help with the initial install script 
