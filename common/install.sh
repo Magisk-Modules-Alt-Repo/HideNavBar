@@ -147,6 +147,8 @@ RES="$MODPATH/Mods/Qtmp/res/values/dimens.xml"
 sed -i s/0.3/"$BH"/g "$RES"
 sed -i s/0.1/"$FH"/g "$RES"
 sed -i s/0.2/"$GS"/g "$RES"
+mkdir -p "$MODPATH"/Mods/MIUIc/
+mkdir -p "$MODPATH"/system/vendor/overlay/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-440dpi/
@@ -179,10 +181,19 @@ mmm_exec showLoading
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/Qtmp/res" -F "$MODPATH"/unsigned.apk >/dev/null
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/MIUI/res" -F "$MODPATH"/miui.apk >/dev/null
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
-"$MODPATH"/tools/zipsigner "$MODPATH"/miui.apk "$MODPATH"/Mods/Q/GestureLineOverlay.apk
+"$MODPATH"/tools/zipsigner "$MODPATH"/miui.apk "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk
 
 #Install overlays
 cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"
+
+if [ -f /product/overlay/GestureLineOverlay.apk ] ; then
+cp -rf "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk "$MODPATH"/system/product/overlay/
+elif [ -f /vendor/overlay/GestureLineOverlay.apk ] ; then
+cp -rf "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk "$MODPATH"/system/vendor/overlay/
+else
+ :
+fi
+
 mmm_exec setLastLine "- Installing Overlays"
 mmm_exec setLastLine "- Complete"
 mmm_exec hideLoading
