@@ -20,6 +20,7 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 
 ## Disclaimer
 - Any option not working is due to incompatibility with your current ROM (there's little i can do about it)
+- GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
 - For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
 - Automatic navbar coloring doesn't work on Android 11+
 
