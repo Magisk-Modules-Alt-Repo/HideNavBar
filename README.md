@@ -98,6 +98,9 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v19.0
+- Reworked Terminal config tool (su -c hn), should avoid issues related to zipsigner
+- Properly support Rboard Theme Manager v3 to avoid conflicts
 ### v18.0
 - Added Samsung A12 support
 ### v17.0
@@ -172,17 +175,6 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - Clean up installer code significantly 
 
 (if you notice any issues on Android 11 due to the new install logic report to me immediatelly)
-### v8.1
-- Fix for Immersive+default sensitivity not getting properly installed
-### v8.0
-- Allow changing gesture sensitivity (for users who may prefer Android's default gesture sensitivity)
-### v7.2
-- Fix fullscreen gestures installation (apologies for the inconvenience)
-### v7.1
-- Added new options during install
-- Small keyboard bar (for immersive mode): Allows you to have less spacing underneath the keyboard
-- Hide Pill (for immersive mode): Allows you to have a near fullscreen experience while still keeping the spacing underneath the keyboard
-### v7.0
-- Switch to the MMT-EX template and added immersive gestures by [samchugit](https://github.com/samchugit/Immersive_Gestural_Nav_Bar) as an option 
+
 
 For older changelogs check [here](https://github.com/Magisk-Modules-Alt-Repo/HideNavBar/blob/master/OC.md)

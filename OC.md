@@ -1,3 +1,15 @@
+### v8.1
+- Fix for Immersive+default sensitivity not getting properly installed
+### v8.0
+- Allow changing gesture sensitivity (for users who may prefer Android's default gesture sensitivity)
+### v7.2
+- Fix fullscreen gestures installation (apologies for the inconvenience)
+### v7.1
+- Added new options during install
+- Small keyboard bar (for immersive mode): Allows you to have less spacing underneath the keyboard
+- Hide Pill (for immersive mode): Allows you to have a near fullscreen experience while still keeping the spacing underneath the keyboard
+### v7.0
+- Switch to the MMT-EX template and added immersive gestures by [samchugit](https://github.com/samchugit/Immersive_Gestural_Nav_Bar) as an option
 ### v6.7
 - Fix gesture option disappearing on later Android 11 builds
 ### v6.6 

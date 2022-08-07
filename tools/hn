@@ -1,13 +1,12 @@
 #!/system/bin/sh
 	
 HNV=/data/adb/modules/HideNavBar
+chmod +x "$HNV"/tools/*
 RES="$HNV/Mods/Qtmp/res/values/dimens.xml"
 cp -rf "$HNV"/Mods/QS/* "$HNV"/Mods/Qtmp/
 rm -rf "$HNV"/Mods/Q/*
 mkdir -p "$HNV"/Mods/Q/NavigationBarModeGestural/
-chmod 755 "$HNV/tools/zipsigner"
-chmod 755 "$HNV/aapt"
-mkdir -p /sdcard/hnv/NavigationBarModeGestural/
+mkdir -p "$HNV"/opt/
 
 echo "Fullscreen/Immersive module setup"
 
@@ -48,9 +47,9 @@ else
 echo "Hide pill? (yes or no, in lowercase)"
 read -r HB
  if [ "$HB" = yes ] ; then
- cp -rf "$HNV"/Mods/HP/* "$HNV"/system"$OP"
+ cp -rf "$HNV"/Mods/HP/* "$HNV"/opt
  else
- rm -rf "$HNV"/system"$OP"/pillhide.apk
+ rm -rf "$HNV"/opt/pillhide.apk
  fi
 fi
 
@@ -60,9 +59,9 @@ else
 echo "Hide keyboard buttons? (yes or no, in lowercase)"
 read -r HKB
  if [ "$HKB" = yes ] ; then
- cp -rf "$HNV"/Mods/HKB/* "$HNV"/system"$OP"
+ cp -rf "$HNV"/Mods/HKB/* "$HNV"/opt/
  else
- rm -rf "$HNV"/system"$OP"/HKN.apk
+ rm -rf "$HNV"/opt/HKN.apk
  fi
 fi
 
@@ -97,12 +96,15 @@ cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-xxxhdp
 cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values-xxhdpi/
 cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values-440dpi/
 cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values/
- 
-"$HNV"/aapt p -f -v -M "$HNV/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$HNV/Mods/Qtmp/res" -F "$HNV"/unsigned.apk >/dev/null
-"$HNV"/aapt p -f -v -M "$HNV/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$HNV/Mods/MIUI/res" -F "$HNV"/miui.apk >/dev/null
-/data/adb/magisk/busybox sh "$HNV"/tools/zipsigner "$HNV"/unsigned.apk /sdcard/hnv/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
-/data/adb/magisk/busybox sh "$HNV"/tools/zipsigner "$HNV"/miui.apk /sdcard/hnv/GestureLineOverlay.apk
-cp -rf /sdcard/hnv/* "$HNV"/system/product/overlay/
-rm -rf /sdcard/hnv/
 
-echo "To apply changes make sure to reboot"
+mkdir "$HNV"/ti
+cp -rf "$HNV"/tools "$HNV"/Mods "$HNV"/module.prop "$HNV"/tools/customize.sh "$HNV"/tools/META-INF/ "$HNV"/service.sh "$HNV"/ti
+cd "$HNV"/ti
+rm -rf "$HNV"/ti/test.zip
+"$HNV"/tools/zip -r test.zip .
+
+magisk --install-module "$HNV"/ti/test.zip
+
+
+
+
