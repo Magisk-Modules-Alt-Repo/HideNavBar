@@ -98,6 +98,8 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v20.0-hotfix
+- Fix terminal setup tool 
 ### v20.0
 - Fix Android 10 support (which was broken since v14.0)
 ### v19.0
