@@ -98,7 +98,7 @@ cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values-440dpi/
 cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values/
 
 mkdir "$HNV"/ti
-cp -rf "$HNV"/tools "$HNV"/Mods "$HNV"/module.prop "$HNV"/tools/customize.sh "$HNV"/tools/META-INF/ "$HNV"/service.sh "$HNV"/ti
+cp -rf "$HNV"/tools "$HNV"/Mods "$HNV"/opt "$HNV"/module.prop "$HNV"/tools/customize.sh "$HNV"/tools/META-INF/ "$HNV"/service.sh "$HNV"/ti
 cd "$HNV"/ti
 rm -rf "$HNV"/ti/test.zip
 "$HNV"/tools/zip -r test.zip .
