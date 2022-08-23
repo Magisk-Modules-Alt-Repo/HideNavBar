@@ -2,20 +2,20 @@
 # Custom Logic
 ##########################################################################################
 
-if [ -n "$MMM_EXT_SUPPORT" ]; then
-  ui_print "#!useExt"
-  mmm_exec() {
-    ui_print "$(echo "#!$@")"
-  }
-else
-  mmm_exec() { true; }
-  abort "! This module need to be executed in Fox's Magisk Module Manager"
-  exit 1
-fi
+#if [ -n "$MMM_EXT_SUPPORT" ]; then
+#  ui_print "#!useExt"
+#  mmm_exec() {
+#    ui_print "$(echo "#!$@")"
+#  }
+#else
+#  mmm_exec() { true; }
+#  abort "! This module need to be executed in Fox's Magisk Module Manager"
+#  exit 1
+#fi
 
-ui_replace() {
-  mmm_exec setLastLine "$1"
-}
+#ui_replace() {
+#  mmm_exec setLastLine "$1"
+#}
 
 #Detect and use compatible AAPT
 chmod +x "$MODPATH"/tools/*
@@ -25,13 +25,16 @@ cp -af "$MODPATH"/tools/$AAPT "$MODPATH"/aapt
 cp -rf "$MODPATH"/Mods/QS/* "$MODPATH"/Mods/Qtmp/
 mkdir -p "$MODPATH"/Mods/Q/NavigationBarModeGestural/
 mkdir -p "$MODPATH"/Mods/Qtmp/
+cp -rf "$MODPATH"/tools/service.sh "$MODPATH"
 
 if [ -d /system/xbin/ ] && [ ! -f /system/xbin/empty ] ; then
     mkdir -p "$MODPATH"/system/xbin/
     cp -rf "$MODPATH"/tools/hn "$MODPATH"/system/xbin/
+    cp -rf "$MODPATH"/tools/hnr "$MODPATH"/system/xbin/
 else
     mkdir -p "$MODPATH"/system/bin/
     cp -rf "$MODPATH"/tools/hn "$MODPATH"/system/bin/
+    cp -rf "$MODPATH"/tools/hnr "$MODPATH"/system/bin/
 fi 
 
 #Find and delete conflicting overlays
@@ -53,13 +56,20 @@ LNG="$MODPATH"/Lang/"$LANGS"/"$LANGS"
 cat "$LNG"1.txt
 if $VKSEL; then
      BH=0.0
+     FBH=0
+     FFH=0
      FH=0.0
      SS=true
+     FIM=false
      VAR3=a
      VAR4=a
 else
      FH=48.0
+     FBH=0
+     FFH=9500
      BH=0.0
+     FFS=false
+     FIM=true
      SS=true
 fi 
 
@@ -68,19 +78,23 @@ if [ "$FH" = 48.0 ] ; then
      cat "$LNG"2.txt
      if $VKSEL; then
      VAR3=HP
+     HD=true
      else
      VAR3=a
      fi 
 fi
 
-#Hide keyboard buttons 
-if [ "$FH" = 48.0 ] ; then
-     cat "$LNG"8.txt
-     if $VKSEL; then
-     VAR4=HKB
-     else
-     VAR4=a
-     fi 
+if [ "$API" -le 30 ] ; then
+ if [ "$FH" = 48.0 ] ; then
+  cat "$LNG"8.txt
+  if $VKSEL; then
+  VAR4=HKB
+  else
+  VAR4=a
+  fi
+ fi
+else
+ :
 fi
 
 #Small keyboard bar
@@ -88,6 +102,7 @@ if [ "$FH" = 48.0 ] ; then
      cat "$LNG"3.txt
      if $VKSEL; then
      FH=16.0
+     FFH=4000
      else
      :
      fi 
@@ -98,8 +113,24 @@ if [ "$SS" = true ] ; then
      cat "$LNG"4.txt
      if $VKSEL; then
      GS=18.0
+     FGS=4000
      else
      GS=32.0
+     FGS=9000
+     fi
+fi
+
+if [ "$SS" = true ] ; then
+     cat "$LNG"9.txt
+     if $VKSEL; then
+      if [ "$FFH" = 0 ] ; then
+      FBH=300
+      FFH=300
+      else
+      FBH=300
+      fi
+     else
+      :
      fi
 fi
 
@@ -143,7 +174,21 @@ if [ "$DBG" = true ] ; then
 fi    
 
 #Write to overlay resources
-RES="$MODPATH/Mods/Qtmp/res/values/dimens.xml"
+RES="$MODPATH"/Mods/Qtmp/res/values/dimens.xml
+FOL="$MODPATH"/service.sh
+
+if [ "$API" -ge 31 ] ; then
+sed -i s/03/"$FBH"/g "$FOL"
+sed -i s/01/"$FFH"/g "$FOL"
+sed -i s/9000/"$FGS"/g "$FOL"
+ if [ "$HD" = true ] ; then
+ :
+ else
+ cat "$MODPATH"/service.sh | head -16 > "$MODPATH"/services.sh && mv "$MODPATH"/services.sh "$MODPATH"/service.sh
+ fi
+fi
+
+if [ "$API" -le 30 ] ; then
 sed -i s/0.3/"$BH"/g "$RES"
 sed -i s/0.1/"$FH"/g "$RES"
 sed -i s/0.2/"$GS"/g "$RES"
@@ -167,41 +212,52 @@ cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/value
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/MIUI/res/values-xxhdpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/MIUI/res/values-440dpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/* "$MODPATH"/Mods/MIUI/res/values/
+fi
 
 
 
 
 #Detect original overlay location
 OP=$(find /system/overlay /product/overlay /vendor/overlay /system_ext/overlay -type d -iname "navigationbarmodegestural" | cut -d 'N' -f1)
-mkdir -p "$MODPATH"/system"$OP"
+
 
 #Build and sign overlays
-mmm_exec setLastLine "- Compiling Overlays"
-mmm_exec showLoading
+#mmm_exec setLastLine "- Compiling Overlays"
+#mmm_exec showLoading
+
+#Building overlays (A11 and below)
+if [ "$API" -le 30 ] ; then
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/Qtmp/res" -F "$MODPATH"/unsigned.apk >/dev/null
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/MIUI/res" -F "$MODPATH"/miui.apk >/dev/null
-if [ "$API" -ge 30 ] ; then
+fi
+
+if [ "$API" -eq 30 ] ; then
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
 "$MODPATH"/tools/zipsigner "$MODPATH"/miui.apk "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk
-else
+elif [ "$API" -eq 29 ] ; then
 "$MODPATH"/tools/zipsignero "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
 "$MODPATH"/tools/zipsignero "$MODPATH"/miui.apk "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk
 fi
 
-#Install overlays
+#Install overlays (A11 and below)
+if [ "$API" -le 30 ] ; then
+mkdir -p "$MODPATH"/system"$OP"
 cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"
-
-if [ -f /product/overlay/GestureLineOverlay.apk ] ; then
-cp -rf "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk "$MODPATH"/system/product/overlay/
-elif [ -f /vendor/overlay/GestureLineOverlay.apk ] ; then
-cp -rf "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk "$MODPATH"/system/vendor/overlay/
-else
- :
 fi
 
-mmm_exec setLastLine "- Installing Overlays"
-mmm_exec setLastLine "- Complete"
-mmm_exec hideLoading
+if [ "$API" -le 30 ] ; then
+ if [ -f /product/overlay/GestureLineOverlay.apk ] ; then
+ cp -rf "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk "$MODPATH"/system/product/overlay/
+ elif [ -f /vendor/overlay/GestureLineOverlay.apk ] ; then
+ cp -rf "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk "$MODPATH"/system/vendor/overlay/
+ else
+ :
+ fi
+fi
 
-ui_print "- Telegram Support group (top right corner)"
-mmm_exec setSupportLink "https://t.me/dnmgsk"
+#mmm_exec setLastLine "- Installing Overlays"
+#mmm_exec setLastLine "- Complete"
+#mmm_exec hideLoading
+
+#ui_print "- Telegram Support group (top right corner)"
+#mmm_exec setSupportLink "https://t.me/dnmgsk"
