@@ -21,7 +21,6 @@ grep_prop() {
 
 
 API=$(grep_prop ro.build.version.sdk)
-echo $API
 
 echo "Fullscreen/Immersive module setup"
 
