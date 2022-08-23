@@ -2,7 +2,10 @@
 	
 HNV=/data/adb/modules/HideNavBar
 chmod +x "$HNV"/tools/*
-RES="$HNV/Mods/Qtmp/res/values/dimens.xml"
+RES="$HNV"/Mods/Qtmp/res/values/dimens.xml
+FOL="$HNV"/service.sh
+API=$(cat /system/build.prop | grep ro.build.version.sdk | cut -d '='-f2)
+cp -rf "$HNV"/tools/service.sh "$HNV"
 cp -rf "$HNV"/Mods/QS/* "$HNV"/Mods/Qtmp/
 rm -rf "$HNV"/Mods/Q/*
 mkdir -p "$HNV"/Mods/Q/NavigationBarModeGestural/
@@ -11,34 +14,59 @@ mkdir -p "$HNV"/opt/
 echo "Fullscreen/Immersive module setup"
 
 echo "Enter Gesture Sensitivity"
-echo "(Min 10.0, default 32.0, Module default 18.0)" 
+if [ "$API" -ge 31 ] ; then
+ echo "(Min 3000, Default 9000, Module default 4000)"
+else
+ echo "(Min 10.0, default 32.0, Module default 18.0)"
+fi
 read -r GS
 if [ "$GS" = "" ]; then
     # $var is empty
 echo " "
 else
-sed -i s/0.2/"$GS"/g "$RES"
+ if [ "$API" -ge 31 ] ; then
+ sed -i s/9000/"$FGS"/g "$FOL"
+ else
+ sed -i s/0.2/"$GS"/g "$RES"
+ fi
 fi
 
 echo "What Navbar height?"
-echo "(0.0 Module default, 18.0 Android default)"
+if [ "$API" -ge 31 ] ; then
+ echo "(0 Module default, 4000 Android default)"
+else
+ echo "(0.0 Module default, 18.0 Android default)"
+fi
 read -r BH
 if [ "$BH" = "" ]; then
     # $var is empty
 echo " "
 else
-sed -i s/0.3/"$BH"/g "$RES"
+ if [ "$API" -ge 31 ] ; then
+ sed -i s/03/"$FBH"/g "$FOL"
+ else
+ sed -i s/0.3/"$BH"/g "$RES"
+ fi
 fi
 
 echo "What Keyboard bar height?"
-echo "(0.0 Fullscreen, 48.0 immersive)"
-echo "(18.0 Immersive+Small keyboard bar)"
+ if [ "$API" -ge 31 ] ; then
+ echo "(0 Fullscreen, 9500 immersive)"
+ echo "(4000 Immersive+Small keyboard bar)"
+ else
+ echo "(0.0 Fullscreen, 48.0 immersive)"
+ echo "(18.0 Immersive+Small keyboard bar)"
+ fi
 read -r FH
 if [ "$FH" = "" ]; then
     # $var is empty
 echo " "
 else
-sed -i s/0.1/"$FH"/g "$RES"
+ if [ "$API" -ge 31 ] ; then
+ sed -i s/01/"$FFH"/g "$FOL"
+ else
+ sed -i s/0.1/"$FH"/g "$RES"
+ fi
 fi
 
 if [ "$FH" = 0.0 ] ; then
@@ -47,21 +75,35 @@ else
 echo "Hide pill? (yes or no, in lowercase)"
 read -r HB
  if [ "$HB" = yes ] ; then
- cp -rf "$HNV"/Mods/HP/* "$HNV"/opt
+  if [ "$API" -ge 31 ] ; then
+  :
+  else
+  cp -rf "$HNV"/Mods/HP/. "$HNV"/opt
+  fi
  else
- rm -rf "$HNV"/opt/pillhide.apk
+  if [ "$API" -ge 31 ] ; then
+  cp -rf /data/adb/service.d/ol2.sh "$HNV"/tools/ol2.sh
+  cat "$HNV"/service.sh | head -16 > "$HNV"/services.sh && mv "$HNV"/services.sh "$HNV"/service.sh
+  else
+  rm -rf "$HNV"/opt/pillhide.apk
+  fi
  fi
 fi
 
-if [ "$FH" = 0.0 ] ; then
- : 
+
+if [ "$API" -ge 31 ] ; then
+ :
 else
-echo "Hide keyboard buttons? (yes or no, in lowercase)"
-read -r HKB
- if [ "$HKB" = yes ] ; then
- cp -rf "$HNV"/Mods/HKB/* "$HNV"/opt/
+ if [ "$FH" = 0.0 ] ; then
+  :
  else
- rm -rf "$HNV"/opt/HKN.apk
+ echo "Hide keyboard buttons? (yes or no, in lowercase)"
+ read -r HKB
+  if [ "$HKB" = yes ] ; then
+  cp -rf "$HNV"/Mods/HKB/. "$HNV"/opt/
+  else
+  rm -rf "$HNV"/opt/HKN.apk
+  fi
  fi
 fi
 
@@ -87,6 +129,7 @@ else
  :
 fi
 
+if [ "$API" -le 30 ] ; then
 cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-sw900dp/
 cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-sw600dp/
 cp -rf "$HNV"/Mods/Qtmp/res/values/dimens.xml "$HNV"/Mods/Qtmp/res/values-440dpi/
@@ -97,14 +140,19 @@ cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values-xxhdpi/
 cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values-440dpi/
 cp -rf "$HNV"/Mods/Qtmp/res/values/* "$HNV"/Mods/MIUI/res/values/
 
+
 mkdir "$HNV"/ti
-cp -rf "$HNV"/tools "$HNV"/Mods "$HNV"/opt "$HNV"/module.prop "$HNV"/tools/customize.sh "$HNV"/tools/META-INF/ "$HNV"/service.sh "$HNV"/ti
+cp -rf "$HNV"/tools "$HNV"/Mods "$HNV"/module.prop "$HNV"/tools/customize.sh "$HNV"/tools/META-INF/ "$HNV"/service.sh "$HNV"/ti
 cd "$HNV"/ti
 rm -rf "$HNV"/ti/test.zip
 "$HNV"/tools/zip -r test.zip .
 
 magisk --install-module "$HNV"/ti/test.zip
 
+else
+ :
+fi
 
+echo "reboot for changes to apply"
 
 
