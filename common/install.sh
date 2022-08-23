@@ -2,20 +2,20 @@
 # Custom Logic
 ##########################################################################################
 
-#if [ -n "$MMM_EXT_SUPPORT" ]; then
-#  ui_print "#!useExt"
-#  mmm_exec() {
-#    ui_print "$(echo "#!$@")"
-#  }
-#else
-#  mmm_exec() { true; }
-#  abort "! This module need to be executed in Fox's Magisk Module Manager"
-#  exit 1
-#fi
+if [ -n "$MMM_EXT_SUPPORT" ]; then
+  ui_print "#!useExt"
+  mmm_exec() {
+    ui_print "$(echo "#!$@")"
+  }
+else
+  mmm_exec() { true; }
+  abort "! This module need to be executed in Fox's Magisk Module Manager"
+  exit 1
+fi
 
-#ui_replace() {
-#  mmm_exec setLastLine "$1"
-#}
+ui_replace() {
+  mmm_exec setLastLine "$1"
+}
 
 #Detect and use compatible AAPT
 chmod +x "$MODPATH"/tools/*
@@ -222,8 +222,8 @@ OP=$(find /system/overlay /product/overlay /vendor/overlay /system_ext/overlay -
 
 
 #Build and sign overlays
-#mmm_exec setLastLine "- Compiling Overlays"
-#mmm_exec showLoading
+mmm_exec setLastLine "- Compiling Overlays"
+mmm_exec showLoading
 
 #Building overlays (A11 and below)
 if [ "$API" -le 30 ] ; then
@@ -255,9 +255,9 @@ if [ "$API" -le 30 ] ; then
  fi
 fi
 
-#mmm_exec setLastLine "- Installing Overlays"
-#mmm_exec setLastLine "- Complete"
-#mmm_exec hideLoading
+mmm_exec setLastLine "- Installing Overlays"
+mmm_exec setLastLine "- Complete"
+mmm_exec hideLoading
 
-#ui_print "- Telegram Support group (top right corner)"
-#mmm_exec setSupportLink "https://t.me/dnmgsk"
+ui_print "- Telegram Support group (top right corner)"
+mmm_exec setSupportLink "https://t.me/dnmgsk"
