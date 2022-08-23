@@ -100,6 +100,10 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 ## Changelog
 ### v21.0
 - Rewrite installer for Android 12+ to use fabricated overlays for higher compatibility 
+- Added Gcam lag fix as install option (12+ atm)
+
+  Translations needed for the Gcam fix option 
+
 ### v20.0-hotfix
 - Fix terminal setup tool 
 ### v20.0
