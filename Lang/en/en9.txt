@@ -1,0 +1,6 @@
+
+        Enable Gcam fix?
+        May cause navbar to be visible
+        On certain devices
+
+        Vol+ = Yes , Vol- = No
