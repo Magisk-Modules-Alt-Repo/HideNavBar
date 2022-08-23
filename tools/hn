@@ -4,12 +4,24 @@ HNV=/data/adb/modules/HideNavBar
 chmod +x "$HNV"/tools/*
 RES="$HNV"/Mods/Qtmp/res/values/dimens.xml
 FOL="$HNV"/service.sh
-API=$(cat /system/build.prop | grep ro.build.version.sdk | cut -d '='-f2)
 cp -rf "$HNV"/tools/service.sh "$HNV"
 cp -rf "$HNV"/Mods/QS/* "$HNV"/Mods/Qtmp/
 rm -rf "$HNV"/Mods/Q/*
 mkdir -p "$HNV"/Mods/Q/NavigationBarModeGestural/
 mkdir -p "$HNV"/opt/
+
+# Grep prop
+grep_prop() {
+  local REGEX="s/^$1=//p"
+  shift
+  local FILES=$@
+  [ -z "$FILES" ] && FILES='/system/build.prop'
+  sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
+}
+
+
+API=$(grep_prop ro.build.version.sdk)
+echo $API
 
 echo "Fullscreen/Immersive module setup"
 
@@ -82,7 +94,6 @@ read -r HB
   fi
  else
   if [ "$API" -ge 31 ] ; then
-  cp -rf /data/adb/service.d/ol2.sh "$HNV"/tools/ol2.sh
   cat "$HNV"/service.sh | head -16 > "$HNV"/services.sh && mv "$HNV"/services.sh "$HNV"/service.sh
   else
   rm -rf "$HNV"/opt/pillhide.apk
