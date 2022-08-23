@@ -21,6 +21,7 @@ grep_prop() {
 
 
 API=$(grep_prop ro.build.version.sdk)
+echo $API
 
 echo "Fullscreen/Immersive module setup"
 
@@ -36,7 +37,7 @@ if [ "$GS" = "" ]; then
 echo " "
 else
  if [ "$API" -ge 31 ] ; then
- sed -i s/9000/"$FGS"/g "$FOL"
+ sed -i s/9000/"$GS"/g "$FOL"
  else
  sed -i s/0.2/"$GS"/g "$RES"
  fi
@@ -54,7 +55,7 @@ if [ "$BH" = "" ]; then
 echo " "
 else
  if [ "$API" -ge 31 ] ; then
- sed -i s/03/"$FBH"/g "$FOL"
+ sed -i s/03/"$BH"/g "$FOL"
  else
  sed -i s/0.3/"$BH"/g "$RES"
  fi
@@ -74,7 +75,7 @@ if [ "$FH" = "" ]; then
 echo " "
 else
  if [ "$API" -ge 31 ] ; then
- sed -i s/01/"$FFH"/g "$FOL"
+ sed -i s/01/"$FH"/g "$FOL"
  else
  sed -i s/0.1/"$FH"/g "$RES"
  fi
