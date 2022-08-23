@@ -98,6 +98,8 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v21.0
+- Rewrite installer for Android 12+ to use fabricated overlays for higher compatibility 
 ### v20.0-hotfix
 - Fix terminal setup tool 
 ### v20.0
@@ -168,15 +170,7 @@ This Magisk Module lets you tweak Android 10-13's gestures.
 - Fix and go back to using the new install logic on Android 11
 ### v8.5
 - Revert to old install logic on Android 11 (attempts to bug fix module not installing correctly on some devices)
-### v8.4
-- Fixed an issue that was causing hide pill to be installed regardless of user preference
-- Cleaner install code (again)
-### v8.3
-- Remove Android 11 specific overlays (no longer necessary as the standard ones work just fine on 11)
-- Clean up install code even more
-### v8.2
-- Fix immersive sensitivity options
-- Clean up installer code significantly 
+
 
 (if you notice any issues on Android 11 due to the new install logic report to me immediatelly)
 
