@@ -2,21 +2,6 @@
 # Custom Logic
 ##########################################################################################
 
-if [ -n "$MMM_EXT_SUPPORT" ]; then
-  ui_print "#!useExt"
-  mmm_exec() {
-    ui_print "$(echo "#!$@")"
-  }
-else
-  mmm_exec() { true; }
-  abort "! This module need to be executed in Fox's Magisk Module Manager"
-  exit 1
-fi
-
-ui_replace() {
-  mmm_exec setLastLine "$1"
-}
-
 #Detect and use compatible AAPT
 chmod +x "$MODPATH"/tools/*
 [ "$($MODPATH/tools/aapt v)" ] && AAPT=aapt
@@ -220,11 +205,6 @@ fi
 #Detect original overlay location
 OP=$(find /system/overlay /product/overlay /vendor/overlay /system_ext/overlay -type d -iname "navigationbarmodegestural" | cut -d 'N' -f1)
 
-
-#Build and sign overlays
-mmm_exec setLastLine "- Compiling Overlays"
-mmm_exec showLoading
-
 #Building overlays (A11 and below)
 if [ "$API" -le 30 ] ; then
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/Qtmp/res" -F "$MODPATH"/unsigned.apk >/dev/null
@@ -255,9 +235,4 @@ if [ "$API" -le 30 ] ; then
  fi
 fi
 
-mmm_exec setLastLine "- Installing Overlays"
-mmm_exec setLastLine "- Complete"
-mmm_exec hideLoading
-
-ui_print "- Telegram Support group (top right corner)"
-mmm_exec setSupportLink "https://t.me/dnmgsk"
+ui_print "Complete"
