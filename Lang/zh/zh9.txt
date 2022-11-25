@@ -1,6 +1,6 @@
 
-        Enable Gcam fix?
-        May cause navbar to be visible
-        On certain devices
+        启用 Gcam 修复?
+        可能会导致导航栏
+        在某些设备上可见
 
-        Vol+ = Yes , Vol- = No
+        音量+ = 是 , 音量- = 否
