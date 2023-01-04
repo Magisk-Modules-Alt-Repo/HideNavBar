@@ -2,7 +2,7 @@
 
 ![](https://i.imgur.com/vcXAreJ.png)
 
-This Magisk Module lets you tweak Android 10-13's gestures.
+This Magisk Module lets you tweak the appearence of Android 10-13's gesture navigation.
 
 ## Requirements
 - Android 10-13
