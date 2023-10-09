@@ -99,6 +99,9 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 
 ## Changelog
 ### v21.0
+- Added Android 14 support (experimental)
+
+### v21.0
 - Rewrite installer for Android 12+ to use fabricated overlays for higher compatibility 
 - Added Gcam lag fix as install option (12+ atm)
 
