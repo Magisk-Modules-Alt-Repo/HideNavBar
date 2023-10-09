@@ -162,7 +162,7 @@ fi
 RES="$MODPATH"/Mods/Qtmp/res/values/dimens.xml
 FOL="$MODPATH"/service.sh
 
-if [ "$API" -ge 31 ] ; then
+if [ "$API" -ge 31 ] && [ "$API" -lt 34 ]; then
 sed -i s/03/"$FBH"/g "$FOL"
 sed -i s/01/"$FFH"/g "$FOL"
 sed -i s/9000/"$FGS"/g "$FOL"
@@ -173,7 +173,7 @@ sed -i s/9000/"$FGS"/g "$FOL"
  fi
 fi
 
-if [ "$API" -le 30 ] ; then
+if [ "$API" -le 30 ] || [ "$API" -eq 34 ]; then
 sed -i s/0.3/"$BH"/g "$RES"
 sed -i s/0.1/"$FH"/g "$RES"
 sed -i s/0.2/"$GS"/g "$RES"
@@ -206,12 +206,12 @@ fi
 OP=$(find /system/overlay /product/overlay /vendor/overlay /system_ext/overlay -type d -iname "navigationbarmodegestural" | cut -d 'N' -f1)
 
 #Building overlays (A11 and below)
-if [ "$API" -le 30 ] ; then
+if [ "$API" -le 30 ] || [ "$API" -eq 34 ]; then
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/Qtmp/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/Qtmp/res" -F "$MODPATH"/unsigned.apk >/dev/null
 "$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/MIUI/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/MIUI/res" -F "$MODPATH"/miui.apk >/dev/null
 fi
 
-if [ "$API" -eq 30 ] ; then
+if [ "$API" -eq 30 ] || [ "$API" -eq 34 ]; then
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
 "$MODPATH"/tools/zipsigner "$MODPATH"/miui.apk "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk
 elif [ "$API" -eq 29 ] ; then
@@ -220,12 +220,12 @@ elif [ "$API" -eq 29 ] ; then
 fi
 
 #Install overlays (A11 and below)
-if [ "$API" -le 30 ] ; then
+if [ "$API" -le 30 ] || [ "$API" -eq 34 ]; then
 mkdir -p "$MODPATH"/system"$OP"
 cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"
 fi
 
-if [ "$API" -le 30 ] ; then
+if [ "$API" -le 30 ] || [ "$API" -eq 34 ]; then
  if [ -f /product/overlay/GestureLineOverlay.apk ] ; then
  cp -rf "$MODPATH"/Mods/MIUIc/GestureLineOverlay.apk "$MODPATH"/system/product/overlay/
  elif [ -f /vendor/overlay/GestureLineOverlay.apk ] ; then
