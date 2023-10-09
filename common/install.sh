@@ -10,7 +10,12 @@ cp -af "$MODPATH"/tools/$AAPT "$MODPATH"/aapt
 cp -rf "$MODPATH"/Mods/QS/* "$MODPATH"/Mods/Qtmp/
 mkdir -p "$MODPATH"/Mods/Q/NavigationBarModeGestural/
 mkdir -p "$MODPATH"/Mods/Qtmp/
-cp -rf "$MODPATH"/tools/service.sh "$MODPATH"
+
+if [ "$API" -ge 31 ] && [ "$API" -lt 34 ]; then
+ cp -rf "$MODPATH"/tools/fabricated/service.sh "$MODPATH"
+else
+ cp -rf "$MODPATH"/tools/service.sh "$MODPATH"
+fi
 
 if [ -d /system/xbin/ ] && [ ! -f /system/xbin/empty ] ; then
     mkdir -p "$MODPATH"/system/xbin/
@@ -173,7 +178,7 @@ sed -i s/9000/"$FGS"/g "$FOL"
  if [ "$HD" = true ] ; then
  :
  else
- cat "$MODPATH"/service.sh | head -16 > "$MODPATH"/service.sh && mv "$MODPATH"/service.sh "$MODPATH"/service.sh
+ cat "$MODPATH"/service.sh | head -16 > "$MODPATH"/services.sh && mv "$MODPATH"/services.sh "$MODPATH"/service.sh
  fi
 fi
 

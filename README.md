@@ -98,6 +98,9 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v23.0
+- Miscenaleous fixes
+
 ### v21.0
 - Added Android 14 support (experimental)
 
