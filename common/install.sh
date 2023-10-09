@@ -164,7 +164,7 @@ fi
 
 #Write to overlay resources
 RES="$MODPATH"/Mods/Qtmp/res/values/dimens.xml
-FOL="$MODPATH"/tools/service.sh
+FOL="$MODPATH"/service.sh
 
 if [ "$API" -ge 31 ] && [ "$API" -lt 34 ]; then
 sed -i s/03/"$FBH"/g "$FOL"
@@ -173,7 +173,7 @@ sed -i s/9000/"$FGS"/g "$FOL"
  if [ "$HD" = true ] ; then
  :
  else
- cat "$MODPATH"/tools/service.sh | head -16 > "$MODPATH"/tools/services.sh && mv "$MODPATH"/tools/services.sh "$MODPATH"
+ cat "$MODPATH"/service.sh | head -16 > "$MODPATH"/service.sh && mv "$MODPATH"/service.sh "$MODPATH"/service.sh
  fi
 fi
 
