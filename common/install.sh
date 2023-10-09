@@ -47,7 +47,7 @@ if $VKSEL; then
      SS=true
      FIM=false
      VAR3=a
-     VAR4=a
+     HKB=false
 else
      FH=48.0
      FBH=0
@@ -69,13 +69,14 @@ if [ "$FH" = 48.0 ] ; then
      fi 
 fi
 
-if [ "$API" -le 30 ] ; then
+#Hide Keyboard buttons
+if [ "$API" -le 30 ] || [ "$API" -eq 34 ]; then
  if [ "$FH" = 48.0 ] ; then
   cat "$LNG"8.txt
   if $VKSEL; then
-  VAR4=HKB
+  HKB=true
   else
-  VAR4=a
+  HKB=false
   fi
  fi
 else
@@ -111,8 +112,11 @@ if [ "$SS" = true ] ; then
       if [ "$FFH" = 0 ] ; then
       FBH=300
       FFH=300
+      BH=1.0
+      FH=1.0
       else
       FBH=300
+      BH=1.0
       fi
      else
       :
@@ -222,7 +226,10 @@ fi
 #Install overlays (A11 and below)
 if [ "$API" -le 30 ] || [ "$API" -eq 34 ]; then
 mkdir -p "$MODPATH"/system"$OP"
-cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/Mods/"$VAR4"/* "$MODPATH"/system"$OP"
+cp -rf "$MODPATH"/Mods/Q/* "$MODPATH"/Mods/"$VAR3"/* "$MODPATH"/system"$OP"
+ if [ "$HKB" = true ]; then
+ cp -rf "$MODPATH"/Mods/HKB/* "$MODPATH"/system"$OP"
+ fi
 fi
 
 if [ "$API" -le 30 ] || [ "$API" -eq 34 ]; then
