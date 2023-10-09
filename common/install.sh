@@ -178,7 +178,7 @@ sed -i s/9000/"$FGS"/g "$FOL"
  if [ "$HD" = true ] ; then
  :
  else
- cat "$MODPATH"/service.sh | head -16 > "$MODPATH"/services.sh && mv "$MODPATH"/services.sh "$MODPATH"/service.sh
+ cat "$MODPATH"/service.sh | head -16 > "$MODPATH"/service.sh && mv "$MODPATH"/service.sh "$MODPATH"/service.sh
  fi
 fi
 
