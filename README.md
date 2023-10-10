@@ -1,11 +1,11 @@
-# Fullscreen/Immersive Gesture Tweaks for Android 10-13
+# Fullscreen/Immersive Gesture Tweaks for Android 10-14
 
 ![](https://i.imgur.com/vcXAreJ.png)
 
 This Magisk Module lets you tweak the appearence of Android 10-13's gesture navigation.
 
 ## Requirements
-- Android 10-13
+- Android 10-14
 - Magisk 20+
 
 ## Installation 
