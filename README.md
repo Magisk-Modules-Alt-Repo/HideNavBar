@@ -92,7 +92,7 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 
 - [RKBDI](https://t.me/RKBDI) for the Rboard module
 
-- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration, if you want more visual tweaks make sure to check out their module [G-VisualMod](https://github.com/Magisk-Modules-Repo/G-VisualMod)
+- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration
 
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
