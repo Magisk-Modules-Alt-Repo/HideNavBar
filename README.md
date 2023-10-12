@@ -14,10 +14,10 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 3. Reboot
 4. Enjoy!
 
-## Terminal Setup
- Run on a terminal app the following command 
- su -c hn
-
+## Donation
+- Consider supporting my work if possible
+[PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
+ 
 ## Disclaimer
 - Any option not working is due to incompatibility with your current ROM (there's little i can do about it)
 - GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
