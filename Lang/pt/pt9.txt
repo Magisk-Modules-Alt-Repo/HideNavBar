@@ -1,6 +1,6 @@
 
-        Enable Gcam fix?
-        May cause navbar to be visible
-        On certain devices
+        Ativar anti-lag na Gcam?
+        Pode tornar a barra de navegeçao
+        isivel em certos dispositivos
 
-        Vol+ = Yes , Vol- = No
+        Vol+ = Sim , Vol- = Nao
