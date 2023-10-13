@@ -14,15 +14,14 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 3. Reboot
 4. Enjoy!
 
-## Terminal Setup
- Run on a terminal app the following command 
- su -c hn
-
+## Donation
+- Consider supporting my work if possible
+[PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
+ 
 ## Disclaimer
-- Any option not working is due to incompatibility with your current ROM (there's little i can do about it)
+- If the module itself works but an specific option doesn't work, it's likely due to ROM incompatibility (while you may report such bugs, i can't guarantee they'll be fixable)
 - GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
-- For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
-- Automatic navbar coloring doesn't work on Android 11+
+- Automatic navbar coloring doesn't work on Android 11+ (Enabling Gcam fix MAY solve the issue but it's not guaranteed)
 
 ## Links
 - [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
@@ -93,7 +92,7 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 
 - [RKBDI](https://t.me/RKBDI) for the Rboard module
 
-- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration, if you want more visual tweaks make sure to check out their module [G-VisualMod](https://github.com/Magisk-Modules-Repo/G-VisualMod)
+- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration
 
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
