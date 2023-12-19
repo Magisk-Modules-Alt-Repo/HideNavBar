@@ -1,11 +1,11 @@
-# Fullscreen/Immersive Gesture Tweaks for Android 10-14
+# Fullscreen/Immersive Gesture Tweaks for Android 10-13
 
 ![](https://i.imgur.com/vcXAreJ.png)
 
-This Magisk Module lets you tweak the appearence of Android 10-14's gesture navigation.
+This Magisk Module lets you tweak the appearence of Android 10-13's gesture navigation.
 
 ## Requirements
-- Android 10-14
+- Android 10-13
 - Magisk 20+
 
 ## Installation 
@@ -14,14 +14,15 @@ This Magisk Module lets you tweak the appearence of Android 10-14's gesture navi
 3. Reboot
 4. Enjoy!
 
-## Donation
-- Consider supporting my work if possible
-[PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
- 
+## Terminal Setup
+ Run on a terminal app the following command 
+ su -c hn
+
 ## Disclaimer
-- If the module itself works but an specific option doesn't work, it's likely due to ROM incompatibility (while you may report such bugs, i can't guarantee they'll be fixable)
+- Any option not working is due to incompatibility with your current ROM (there's little i can do about it)
 - GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
-- Automatic navbar coloring doesn't work on Android 11+ (Enabling Gcam fix MAY solve the issue but it's not guaranteed)
+- For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
+- Automatic navbar coloring doesn't work on Android 11+
 
 ## Links
 - [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
@@ -92,19 +93,23 @@ This Magisk Module lets you tweak the appearence of Android 10-14's gesture navi
 
 - [RKBDI](https://t.me/RKBDI) for the Rboard module
 
-- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration
+- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration, if you want more visual tweaks make sure to check out their module [G-VisualMod](https://github.com/Magisk-Modules-Repo/G-VisualMod)
 
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
-### 24.0
+### v25.0
+- Fixed the module not working on A14 QPR2
+- Fixed the issue where the keyboard bar was overlaying the keyboard on A14 (this fix may cause the hide keyboard buttons option to not work)
+
+### v24.0
 - Lowered overlay priority and added slight delays to the boot script (which should prevent system overlays from overriding the module's values)
 - Disabled config_imeDrawsImeNavBar (which should allow the hide keyboard buttons option to work properly on Android 13 and up)
 
 ### v23.0
 - Miscenaleous fixes
 
-### v21.0
+### v22.0
 - Added Android 14 support (experimental)
 
 ### v21.0

@@ -4,5 +4,5 @@
     <bool name="config_navBarAlwaysShowOnSideEdgeGesture">true</bool>
     <bool name="config_navBarCanMove">false</bool>
     <bool name="config_navBarTapThrough">true</bool>
-    <bool name="config_imeDrawsImeNavBar">false</bool>
+    <bool name="config_imeDrawsImeNavBar">true</bool>
 </resources>
