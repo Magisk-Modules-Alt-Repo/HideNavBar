@@ -27,6 +27,8 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 ## Links
 - [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
 - [Telegram Channel](https://t.me/danmgk)
+- [PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
+- [Revolut Tag](@danielem47)
 
 ## Options
 
