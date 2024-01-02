@@ -23,6 +23,7 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 - GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
 - For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
 - Automatic navbar coloring doesn't work on Android 11+
+- If you use KernelSU, either disable Unmount by Default in its setttings or create an app profile for systemui and gboard)
 
 ## Links
 - [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
