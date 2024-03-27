@@ -23,13 +23,10 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 - GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
 - For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
 - Automatic navbar coloring doesn't work on Android 11+
-- If you use KernelSU, either disable Unmount by Default in its setttings or create an app profile for systemui and gboard)
 
 ## Links
 - [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
 - [Telegram Channel](https://t.me/danmgk)
-- [PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
-- Revolut Tag @danielem47
 
 ## Options
 
@@ -101,6 +98,10 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v26.0
+- Initial Taskbar support (currently only works on Pixel Launcher and device's who's stock launcher's package name is com.android.launcher3)
+- Add disclaimer for KernelSU users about the need to add SystemUI to the root list (making sure the unmount module option is not enabled)
+
 ### v25.0
 - Fixed the module not working on A14 QPR2
 - Fixed the issue where the keyboard bar was overlaying the keyboard on A14 (this fix may cause the hide keyboard buttons option to not work)
