@@ -1,12 +1,12 @@
-# Fullscreen/Immersive Gesture Tweaks for Android 10-13
+# Fullscreen/Immersive Gesture Tweaks for Android 10-14
 
 ![](https://i.imgur.com/vcXAreJ.png)
 
-This Magisk Module lets you tweak the appearence of Android 10-13's gesture navigation.
+This Magisk Module lets you tweak the appearence of Android 10-14's gesture navigation.
 
 ## Requirements
-- Android 10-13
-- Magisk 20+
+- Android 10-14
+- Magisk 20+ or KernelSU (likely Apatch as well)
 
 ## Installation 
 1. Flash the module
@@ -14,15 +14,10 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 3. Reboot
 4. Enjoy!
 
-## Terminal Setup
- Run on a terminal app the following command 
- su -c hn
-
 ## Disclaimer
-- Any option not working is due to incompatibility with your current ROM (there's little i can do about it)
 - GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
-- For issues related to GCam after installing the module you may use the terminal setup tool to increase the navbar size slightly to workaround the issue
-- Automatic navbar coloring doesn't work on Android 11+
+- Automatic navbar coloring doesn't work on Android 11+ (using the Gcam fix option may solve the problem)
+- KernelSU users need to add the SystemUI app to the root list (no need to grant root access, just make sure unmount modules is disabled to it)
 
 ## Links
 - [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
@@ -32,23 +27,15 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 
 ## Options
 
-- Android Default
-
-<p align="left">
-  <img src="https://i.imgur.com/x1zcFTn.jpg">
-</p>
-
-- Fullscreen
-
-<p align="left">
-  <img width="463" height="51" src="https://i.imgur.com/q0vTxdR.png">
-</p>
+### Fullscreen:
+ Hides the navigation bar in its entirety, including the gesture bar (pill) and the space underneath the keyboard
+ 
+### Immersive:
+ Removes navigation bar but retains the gesture bar (optional) and the space underneath the keyboard
+ 
+### Immersive also provides additional options listed bellow:
 
 - Immersive (With the Pill + Default Keyboard Spacing)
-
-<p align="left">
-  <img src="https://i.imgur.com/x1zcFTn.jpg">
-</p>
 
 <p align="left">
   <img src="https://i.imgur.com/ZPdYrom.jpg">
@@ -77,7 +64,7 @@ This Magisk Module lets you tweak the appearence of Android 10-13's gesture navi
 </p>
 
 
-- Additionally back gestures can be disabled on Android 11-12 for either left side only (to access side menus on apps) or both sides (if one wishes to remap the back gestures with other apps)
+- Additionally back gestures can be disabled on Android 11 and up for either left side only (to access side menus on apps) or both sides (if one wishes to remap the back gestures with other apps)
 
 ### Translation
  If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email, omit special symbols such as á,ã
