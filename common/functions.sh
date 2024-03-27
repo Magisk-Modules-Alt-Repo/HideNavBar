@@ -159,6 +159,9 @@ ui_print " "
 # Min KSU v0.6.6
 [ -z $KSU ] && KSU=false
 $KSU && { [ $KSU_VER_CODE -lt 11184 ] && require_new_ksu; }
+# APatch is fork of KSU, treat same
+[ -z $APATCH ] && APATCH=false
+[ "$APATCH" == "true" ] && KSU=true
 
 # Start debug
 set -x

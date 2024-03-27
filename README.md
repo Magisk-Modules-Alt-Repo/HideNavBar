@@ -87,6 +87,9 @@ This Magisk Module lets you tweak the appearence of Android 10-14's gesture navi
 - All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
 
 ## Changelog
+### v26.1
+- Hotfix for Fullscreen not working properly
+ 
 ### v26.0
 - Initial Taskbar support (currently only works on Pixel Launcher or on device's who's stock launcher's package name is com.android.launcher3)
 - Add disclaimer for KernelSU users about the need to add SystemUI to the root list (making sure the unmount module option is not enabled)

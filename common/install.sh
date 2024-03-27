@@ -225,7 +225,7 @@ elif [ "$API" -ge 34 ]; then
 fi
 
 if [ "$HKB" = true ]; then
-"$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/HKBT/AndroidManifest.xml" -I /system/framework/framework-res.apk -S "$MODPATH/Mods/HKBT/res" -F "$MODPATH"/unsigned6.apk >/dev/null
+"$MODPATH"/aapt p -f -v -M "$MODPATH/Mods/HKBT/AndroidManifest.xml" -I "$MODPATH"/tools/framework-res.apk -S "$MODPATH/Mods/HKBT/res" -F "$MODPATH"/unsigned6.apk >/dev/null
 
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned6.apk "$MODPATH"/Mods/HTK/HTK.apk
 
