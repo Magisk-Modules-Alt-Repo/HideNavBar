@@ -57,7 +57,6 @@ if $VKSEL; then
      HKB=true
      FIM=false
      VAR3=a
-     HKB=false
 else
      FH=48.0
      FBH=0
