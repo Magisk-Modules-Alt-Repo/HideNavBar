@@ -13,3 +13,13 @@ fi
  cmd overlay enable dan.overlaya
  sleep 1
  cmd overlay enable dan.overlayb
+ sleep 1
+ cmd overlay enable dan.overlayd
+ sleep 1
+ cmd overlay enable dan.overlaye
+ sleep 1
+ cmd overlay enable dan.overlayf
+ sleep 1
+ cmd overlay enable dan.overlayg
+ sleep 1
+ cmd overlay enable com.dan.overlayi
