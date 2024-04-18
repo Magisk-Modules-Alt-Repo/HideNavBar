@@ -8,7 +8,6 @@ require_new_ksu() {
   ui_print "**********************************"
   ui_print " Please install KernelSU v0.6.6+! "
   ui_print "**********************************"
-  exit 1
 }
 
 umount_mirrors() {
