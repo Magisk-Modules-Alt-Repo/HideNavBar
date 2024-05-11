@@ -1,6 +1,0 @@
-
-		----- Schermo intero/Gesti immersivi ------
-
-		Scegli la modalità dei gesti
-
-		Vol+ = Schermo intero, Vol- = Gesti immersivi

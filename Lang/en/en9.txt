@@ -1,6 +1,6 @@
 
-        Enable Gcam fix?
+        Enable Navbar color fix? (not guaranteed to work)
         May cause navbar to be visible
-        On certain devices
+        on certain devices
 
         Vol+ = Yes , Vol- = No

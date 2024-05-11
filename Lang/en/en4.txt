@@ -1,4 +1,5 @@
-		Pick the gesture sensitivity.
 
-		Vol+ = Low (Module Default) , Vol- = High (Android's Default)
+        Pick the gesture sensitivity.
+
+        Vol+ = Low (Module Default) , Vol- = High (Android's Default)
 

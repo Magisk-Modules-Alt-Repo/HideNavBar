@@ -1,5 +1,0 @@
-		----- Gesto Tela cheia / Imersivos ------
-
-		Escolha o seu modo de gestos
-
-		Vol + = Tela Cheia, Vol- = Imersivo

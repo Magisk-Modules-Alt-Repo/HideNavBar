@@ -1,6 +1,7 @@
 
-        Enable Gcam fix?
-        May cause navbar to be visible
-        On certain devices
+        Ativar correção cor da barra de navegacao?
+        (Nao é garantido funcionar)
+        Pode causar a barra de navegação
+        a ficar levemente visivel
 
-        Vol+ = Yes , Vol- = No
+        Vol+ = Sim , Vol- = Nao

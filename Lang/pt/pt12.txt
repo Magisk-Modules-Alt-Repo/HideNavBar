@@ -1,0 +1,7 @@
+
+        Desativar gestos?
+        (para uso de apps alternativos de gestos)
+
+        Vol+ = Sim , Vol- = Nao
+
+

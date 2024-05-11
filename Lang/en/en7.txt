@@ -1,3 +1,3 @@
 
-		To reenable the back gestures  
-		choose no to disabling them
+        To reenable the back gestures
+        choose no to disabling them
