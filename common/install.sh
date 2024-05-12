@@ -70,6 +70,7 @@ if [ "$HIDE" = true ] ; then
           SS=true
           HKB=true
           VAR5=HL
+          VAR4=PH
           VAR3=a
      else
           FH=48.0
@@ -212,14 +213,10 @@ mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxhdpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxxhdpi/
 mkdir -p "$MODPATH"/Mods/P/
 mkdir -p "$MODPATH"/Mods/L/
-mkdir -p "$MODPATH"/Mods/PH/
-mkdir -p "$MODPATH"/Mods/HL/
 mkdir -p "$MODPATH"/Mods/HTK/
 mkdir "$MODPATH"/compiled
 mkdir "$MODPATH"/compiled2
 mkdir "$MODPATH"/compiled3
-mkdir "$MODPATH"/compiled4
-mkdir "$MODPATH"/compiled5
 mkdir "$MODPATH"/compiled6
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
@@ -245,14 +242,6 @@ if [ "$API" -ge 29 ]; then
     "$MODPATH"/aapt2 compile -v --dir "$MODPATH"/Mods/HPS2/res -o "$MODPATH"/compiled3 && \
     "$MODPATH"/aapt2 link -v -o "$MODPATH"/unsigned3.apk -I /system/framework/framework-res.apk \
     --manifest "$MODPATH"/Mods/HPS2/AndroidManifest.xml "$MODPATH"/compiled3/*
-
-    "$MODPATH"/aapt2 compile -v --dir "$MODPATH"/Mods/HPS3/res -o "$MODPATH"/compiled4 && \
-    "$MODPATH"/aapt2 link -v -o "$MODPATH"/unsigned4.apk -I /system/framework/framework-res.apk \
-    --manifest "$MODPATH"/Mods/HPS3/AndroidManifest.xml "$MODPATH"/compiled4/*
-
-    "$MODPATH"/aapt2 compile -v --dir "$MODPATH"/Mods/HPS4/res -o "$MODPATH"/compiled5 && \
-    "$MODPATH"/aapt2 link -v -o "$MODPATH"/unsigned5.apk -I /system/framework/framework-res.apk \
-    --manifest "$MODPATH"/Mods/HPS4/AndroidManifest.xml "$MODPATH"/compiled5/*
 fi
 
 if [ "$HKB" = true ]; then
@@ -270,8 +259,6 @@ if [ "$API" -ge 30 ]; then
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestura/NavigationBarModeGesturalOverlay.apk
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned2.apk "$MODPATH"/Mods/P/Pixel.apk
 "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned3.apk "$MODPATH"/Mods/L/L3.apk
-"$MODPATH"/tools/zipsigner "$MODPATH"/unsigned4.apk "$MODPATH"/Mods/PH/PH.apk
-"$MODPATH"/tools/zipsigner "$MODPATH"/unsigned5.apk "$MODPATH"/Mods/HL/HL.apk
 elif [ "$API" -eq 29 ] ; then
 "$MODPATH"/tools/zipsignero "$MODPATH"/unsigned.apk "$MODPATH"/Mods/Q/NavigationBarModeGestura/NavigationBarModeGesturalOverlay.apk
 fi
@@ -291,14 +278,10 @@ rm -rf "$MODPATH"/system/app/dummy
 rm -rf "$MODPATH"/compiled/
 rm -rf "$MODPATH"/compiled2/
 rm -rf "$MODPATH"/compiled3/
-rm -rf "$MODPATH"/compiled4/
-rm -rf "$MODPATH"/compiled5/
 rm -rf "$MODPATH"/compiled6/
 rm -rf "$MODPATH"/unsigned.apk
 rm -rf "$MODPATH"/unsigned2.apk
 rm -rf "$MODPATH"/unsigned3.apk
-rm -rf "$MODPATH"/unsigned4.apk
-rm -rf "$MODPATH"/unsigned5.apk
 rm -rf "$MODPATH"/unsigned6.apk
 
 ui_print ""
