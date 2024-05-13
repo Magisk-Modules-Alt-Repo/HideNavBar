@@ -51,9 +51,10 @@ This Magisk Module lets you tweak the appearence of Android 10-14's gesture navi
 
 ### v27
 - Switched to AAPT2 for overlay buidling (fixes Android 14 QPR2 issues without the need for the previous embedded framework workaround)
+- Fixed the keyboard buttons not getting hidden in landscape on MIUI/HyperOS
 - Restructured the installer to allow for further customization of the navigation bar and to simplify the names of options (fullscreen and immersive were somewhat too vague)
 
- Due to the restructured installer, translations will need to be updated for russian, italian, spanish and chinese (for text 10-12, don't submit text 1 as it's no longer used)
+ Due to the restructured installer, translations will need to be updated for russian, italian, spanish and chinese (for text 10-12, don't submit text 1 as it's no longer used), feel free to submit them through a pull request or through my Telegram
 
 ### v26.1
 - Hotfix for Fullscreen not working properly
