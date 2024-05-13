@@ -1,4 +1,4 @@
-# NavCraft (former Fullscreen/Immersive gestures) 10-14
+# NavTweaks (former Fullscreen/Immersive gestures) 10-14
 
 ![](https://i.imgur.com/vcXAreJ.png)
 
