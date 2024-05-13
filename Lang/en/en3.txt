@@ -1,3 +1,4 @@
-		Reduce the size of the keyboard bar?
 
-		Vol+ = Yes , Vol- = No (default)
+        Reduce the size of the keyboard bar?
+
+        Vol+ = Yes , Vol- = No (default)

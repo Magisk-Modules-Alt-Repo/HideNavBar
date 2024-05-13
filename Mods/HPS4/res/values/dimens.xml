@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="taskbar_stashed_handle_height">0.0dip</dimen>
-    <dimen name="taskbar_nav_buttons_size">0dp</dimen>
-</resources>

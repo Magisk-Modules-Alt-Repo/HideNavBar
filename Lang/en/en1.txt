@@ -1,5 +1,0 @@
-		----- Fullscreen/Immersive Gestures ------
-
-		Choose your gestures mode
-
-		Vol+ = Fullscreen, Vol- = Immersive

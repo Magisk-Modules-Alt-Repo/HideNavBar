@@ -1,3 +1,4 @@
+
 		Escolha a sensitividade do gesto.
 
-		Vol + = Baixo (padrão do módulo), Vol- = alto (padrão do Android)
+		Vol + = Baixo (padrao do modulo), Vol- = alto (padrao do Android)

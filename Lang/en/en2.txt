@@ -1,3 +1,4 @@
+
 		Hide pill and keep keyboard height/space?
 
 		Vol+ = Yes , Vol- = No (default)

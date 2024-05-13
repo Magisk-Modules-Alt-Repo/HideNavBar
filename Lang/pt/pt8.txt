@@ -1,3 +1,4 @@
+
 		Esconder botoes do teclado (Voltar/Trocar teclado) ?
 
-		Vol+ = Sim , Vol- = Não
+		Vol+ = Sim , Vol- = Nao

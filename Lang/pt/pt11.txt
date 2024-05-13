@@ -1,0 +1,4 @@
+
+        Esconder espaço abaixo do teclado?
+
+        Vol+ = Sim , Vol- = Nao

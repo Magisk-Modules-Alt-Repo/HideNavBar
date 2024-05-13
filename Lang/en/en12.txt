@@ -1,0 +1,4 @@
+
+        Disable bottom gestures? (for gesture apps)
+
+        Vol+ = Yes , Vol- = No

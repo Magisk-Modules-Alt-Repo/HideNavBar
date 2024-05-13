@@ -1,0 +1,4 @@
+
+        Hide space under the keyboard?
+
+        Vol+ = Yes , Vol- = No
