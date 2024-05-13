@@ -2,7 +2,7 @@
 
 ![](https://i.imgur.com/vcXAreJ.png)
 
-This Magisk Module lets you tweak the appearence of Android 10-14's gesture navigation.
+This Magisk Module lets you tweak the appearence of Android 10-14's navigation bar.
 
 ## Requirements
 - Android 10-14
@@ -103,7 +103,193 @@ This Magisk Module lets you tweak the appearence of Android 10-14's gesture navi
 - Removed unnecessary waiting during module install 
 
 ### v16.3
+- Added Fox## Disclaimer
+- GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
+- Navbar coloring (getting light/dark) doesn't work on Android 11+ (using the Coloring fix/workaround option may fix it but it's not guaranteed)
+- KernelSU users need to add the SystemUI app to the root list (no need to grant root access, just make sure unmount modules is disabled to it)
+
+## Links
+- [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
+- [Telegram Channel](https://t.me/danmgk)
+- [PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
+- Revolut Tag @danielem47
+
+### Translation
+ If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email, omit special symbols such as á,ã
+
+## Special Thanks
+- [skittles9823](https://github.com/skittles9823) for his help with the initial install script 
+
+- [Nebulart](https://t.me/nebulart) for the banner
+
+- [Samchugit](https://github.com/samchugit) for making the original immersive gestures module
+
+- [Zackptg5](https://github.com/Zackptg5) for the MMT-Ex template
+
+- [Topjohnwu](https://github.com/topjohnwu) for making Magisk
+
+- [RKBDI](https://t.me/RKBDI) for the Rboard module
+
+- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration
+
+- [AAGaming00](https://github.com/AAGaming00/aapt2) for his AAPT2 binary
+
+- All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
+
+## Changelog
+
+### v27
+- Switched to AAPT2 for overlay buidling (fixes Android 14 QPR2 issues without the need for the previous embedded framework workaround)
+- Fixed the keyboard buttons not getting hidden in landscape on MIUI/HyperOS
+- Restructured the installer to allow for further customization of the navigation bar and to simplify the names of options (fullscreen and immersive were somewhat too vague)
+
+ Due to the restructured installer, translations will need to be updated for russian, italian, spanish and chinese (for text 10-12, don't submit text 1 as it's no longer used), feel free to submit them through a pull request or through my Telegram
+
+### v26.1
+- Hotfix for Fullscreen not working properly
+ 
+### v26.0
+- Initial Taskbar support (currently only works on Pixel Launcher or on device's who's stock launcher's package name is com.android.launcher3)
+- Add disclaimer for KernelSU users about the need to add SystemUI to the root list (making sure the unmount module option is not enabled)
+
+### v25.0
+- Fixed the module not working on A14 QPR2
+- Fixed the issue where the keyboard bar was overlaying the keyboard on A14 (this fix may cause the hide keyboard buttons option to not work)
+
+### v24.0
+- Lowered overlay priority and added slight delays to the boot script (which should prevent system overlays from overriding the module's values)
+- Disabled config_imeDraw## Disclaimer
+- GSI compabitility isn't guaranteed due to Magisk's inconsistent GSI support
+- Navbar coloring (getting light/dark) doesn't work on Android 11+ (using the Coloring fix/workaround option may fix it but it's not guaranteed)
+- KernelSU users need to add the SystemUI app to the root list (no need to grant root access, just make sure unmount modules is disabled to it)
+
+## Links
+- [GitHub](https://github.com/Magisk-Modules-Repo/HideNavBar) 
+- [Telegram Channel](https://t.me/danmgk)
+- [PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
+- Revolut Tag @danielem47
+
+### Translation
+ If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email, omit special symbols such as á,ã
+
+## Special Thanks
+- [skittles9823](https://github.com/skittles9823) for his help with the initial install script 
+
+- [Nebulart](https://t.me/nebulart) for the banner
+
+- [Samchugit](https://github.com/samchugit) for making the original immersive gestures module
+
+- [Zackptg5](https://github.com/Zackptg5) for the MMT-Ex template
+
+- [Topjohnwu](https://github.com/topjohnwu) for making Magisk
+
+- [RKBDI](https://t.me/RKBDI) for the Rboard module
+
+- [Gnonymous7](https://github.com/Gnonymous7) for some general inspiration
+
+- [AAGaming00](https://github.com/AAGaming00/aapt2) for his AAPT2 binary
+
+- All Custom ROMs who made my module an official feature in their ROM (AOSIP, Havoc & etc)
+
+## Changelog
+
+### v27
+- Switched to AAPT2 for overlay buidling (fixes Android 14 QPR2 issues without the need for the previous embedded framework workaround)
+- Fixed the keyboard buttons not getting hidden in landscape on MIUI/HyperOS
+- Restructured the installer to allow for further customization of the navigation bar and to simplify the names of options (fullscreen and immersive were somewhat too vague)
+
+ Due to the restructured installer, translations will need to be updated for russian, italian, spanish and chinese (for text 10-12, don't submit text 1 as it's no longer used), feel free to submit them through a pull request or through my Telegram
+
+### v26.1
+- Hotfix for Fullscreen not working properly
+ 
+### v26.0
+- Initial Taskbar support (currently only works on Pixel Launcher or on device's who's stock launcher's package name is com.android.launcher3)
+- Add disclaimer for KernelSU users about the need to add SystemUI to the root list (making sure the unmount module option is not enabled)
+
+### v25.0
+- Fixed the module not working on A14 QPR2
+- Fixed the issue where the keyboard bar was overlaying the keyboard on A14 (this fix may cause the hide keyboard buttons option to not work)
+
+### v24.0
+- Lowered overlay priority and added slight delays to the boot script (which should prevent system overlays from overriding the module's values)
+- Disabled config_imeDrawsImeNavBar (which should allow the hide keyboard buttons option to work properly on Android 13 and up)
+
+### v23.0
+- Miscenaleous fixes
+
+### v22.0
+- Added Android 14 support (experimental)
+
+### v21.0
+- Rewrite installer for Android 12+ to use fabricated overlays for higher compatibility 
+- Added Gcam lag fix as install option (12+ atm)
+
+  Translations needed for the Gcam fix option 
+
+### v20.0-hotfix
+- Fix terminal setup tool 
+
+### v20.0
+- Fix Android 10 support (which was broken since v14.0)
+
+### v19.0
+- Reworked Terminal config tool (su -c hn), should avoid issues related to zipsigner
+- Properly support Rboard Theme Manager v3 to avoid conflicts
+
+### v18.0
+- Added Samsung A12 support
+
+### v17.0
+- Proper MIUI detection/install logic (should provide compatibility to MIUI based on Android 10, not tested)
+
+### v16.4
+- Removed unnecessary waiting during module install 
+
+### v16.3
 - Added Fox Manager Extension support (support link shortcut when installing the module)
+- Try and improve the volume selector delay a bit
+
+### v16.1
+sImeNavBar (which should allow the hide keyboard buttons option to work properly on Android 13 and up)
+
+### v23.0
+- Miscenaleous fixes
+
+### v22.0
+- Added Android 14 support (experimental)
+
+### v21.0
+- Rewrite installer for Android 12+ to use fabricated overlays for higher compatibility 
+- Added Gcam lag fix as install option (12+ atm)
+
+  Translations needed for the Gcam fix option 
+
+### v20.0-hotfix
+- Fix terminal setup tool 
+
+### v20.0
+- Fix Android 10 support (which was broken since v14.0)
+
+### v19.0
+- Reworked Terminal config tool (su -c hn), should avoid issues related to zipsigner
+- Properly support Rboard Theme Manager v3 to avoid conflicts
+
+### v18.0
+- Added Samsung A12 support
+
+### v17.0
+- Proper MIUI detection/install logic (should provide compatibility to MIUI based on Android 10, not tested)
+
+### v16.4
+- Removed unnecessary waiting during module install 
+
+### v16.3
+- Added Fox Manager Extension support (support link shortcut when installing the module)
+- Try and improve the volume selector delay a bit
+
+### v16.1
+ Manager Extension support (support link shortcut when installing the module)
 - Try and improve the volume selector delay a bit
 
 ### v16.1
