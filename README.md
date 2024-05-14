@@ -49,6 +49,9 @@ This Magisk Module lets you tweak the appearence of Android 10-14's navigation b
 
 ## Changelog
 
+### v27.1
+- Increase volume selector timeout (to give users more time to read the options)
+
 ### v27
 - Switched to AAPT2 for overlay buidling (fixes Android 14 QPR2 issues without the need for the previous embedded framework workaround)
 - Fixed the keyboard buttons not getting hidden in landscape on MIUI/HyperOS
@@ -354,17 +357,6 @@ sImeNavBar (which should allow the hide keyboard buttons option to work properly
 
 ### v9.0
 - Allow disabling back gesture on A11-12 (Left only for side menus and Left & Right for gesture apps)
-
-### v8.8
-- Update MAXAPI to 31 to support the eventual stable A12 release 
-
-### v8.7
-- Update Volume selector
-- Revised install logic
-- Disable the Gboard spacing some Android 11 ROMs were using by default (users are still free to change/reenable the spacing with Rboard as I've made sure my code won't overlap with it)
-
-
-(if you notice any issues on Android 11 due to the new install logic report to me immediatelly)
 
 
 For older changelogs check [here](https://github.com/Magisk-Modules-Alt-Repo/HideNavBar/blob/master/OC.md)
