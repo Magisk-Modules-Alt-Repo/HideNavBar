@@ -8,6 +8,7 @@ This Magisk Module lets you tweak the appearence of Android 10-14's navigation b
 - Android 10-14
 - Magisk 20+ or KernelSU (likely Apatch as well)
 
+
 ## Installation 
 1. Flash the module
 2. Select the desired options on the volume selector
