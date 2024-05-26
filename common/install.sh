@@ -124,6 +124,7 @@ if [ "$HIDE" = true ] ; then
      cat "$LNG"12.txt
      if $VKSEL; then
      GS=0.0
+     SS=false
      else
      GS=32.0
      fi
