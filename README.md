@@ -49,6 +49,9 @@ This Magisk Module lets you tweak the appearence of Android 10-14's navigation b
 
 ## Changelog
 
+### v27.2
+- Fix module not working properly on MIUI/HyperOS on certain DPIs (might also fix on other devices)
+
 ### v27.1
 - Increase volume selector timeout (to give users more time to read the options)
 

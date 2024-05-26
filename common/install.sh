@@ -232,21 +232,21 @@ fi
 #Building overlays
 if [ "$API" -ge 29 ]; then
     "$MODPATH"/aapt2 compile -v --dir "$MODPATH"/Mods/Qtmp/res -o "$MODPATH"/compiled && \
-    "$MODPATH"/aapt2 link -v -o "$MODPATH"/unsigned.apk -I /system/framework/framework-res.apk \
+    "$MODPATH"/aapt2 link -v --no-resource-deduping -o "$MODPATH"/unsigned.apk -I /system/framework/framework-res.apk \
     --manifest "$MODPATH"/Mods/Qtmp/AndroidManifest.xml "$MODPATH"/compiled/*
 
     "$MODPATH"/aapt2 compile -v --dir "$MODPATH"/Mods/HPS1/res -o "$MODPATH"/compiled2 && \
-    "$MODPATH"/aapt2 link -v -o "$MODPATH"/unsigned2.apk -I /system/framework/framework-res.apk \
+    "$MODPATH"/aapt2 link -v --no-resource-deduping -o "$MODPATH"/unsigned2.apk -I /system/framework/framework-res.apk \
     --manifest "$MODPATH"/Mods/HPS1/AndroidManifest.xml "$MODPATH"/compiled2/*
 
     "$MODPATH"/aapt2 compile -v --dir "$MODPATH"/Mods/HPS2/res -o "$MODPATH"/compiled3 && \
-    "$MODPATH"/aapt2 link -v -o "$MODPATH"/unsigned3.apk -I /system/framework/framework-res.apk \
+    "$MODPATH"/aapt2 link -v --no-resource-deduping -o "$MODPATH"/unsigned3.apk -I /system/framework/framework-res.apk \
     --manifest "$MODPATH"/Mods/HPS2/AndroidManifest.xml "$MODPATH"/compiled3/*
 fi
 
 if [ "$HKB" = true ]; then
     "$MODPATH"/aapt2 compile -v --dir "$MODPATH"/Mods/HKBT/res -o "$MODPATH"/compiled6 && \
-    "$MODPATH"/aapt2 link -v -o "$MODPATH"/unsigned6.apk -I /system/framework/framework-res.apk \
+    "$MODPATH"/aapt2 link -v --no-resource-deduping -o "$MODPATH"/unsigned6.apk -I /system/framework/framework-res.apk \
     --manifest "$MODPATH"/Mods/HKBT/AndroidManifest.xml "$MODPATH"/compiled6/*
 
     "$MODPATH"/tools/zipsigner "$MODPATH"/unsigned6.apk "$MODPATH"/Mods/HTK/HTK.apk
