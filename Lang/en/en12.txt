@@ -1,4 +1,4 @@
 
-        Disable bottom gestures? (for gesture apps)
+        Disable home/recent gestures? (to use gesture apps)
 
         Vol+ = Yes , Vol- = No

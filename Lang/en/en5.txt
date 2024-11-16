@@ -1,5 +1,5 @@
 
-        Wish to disable the back gesture?
+        Disable the going back gestures?
 
         Vol+ = Yes , Vol- = No
 
