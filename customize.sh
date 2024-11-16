@@ -13,7 +13,7 @@
 # Uncomment PARTOVER if you have a workaround in place for extra partitions in regular magisk install (can mount them yourself - you will need to do this each boot as well). If unsure, keep commented
 # Uncomment PARTITIONS and list additional partitions you will be modifying (other than system and vendor), for example: PARTITIONS="/odm /product /system_ext"
 MINAPI=29
-MAXAPI=34
+MAXAPI=99
 #DYNLIB=true
 #PARTOVER=true
 #PARTITIONS=""

@@ -204,10 +204,14 @@ if [ "$API" -ge 29 ]; then
 sed -i s/0.3/"$BH"/g "$RES"
 sed -i s/0.2/"$BH"/g "$LRES"
 sed -i s/0.2/"$BH"/g "$LRESS"
+sed -i s/0.1/"$FH"/g "$LRES"
+sed -i s/0.1/"$FH"/g "$LRESS"
 sed -i s/0.1/"$FH"/g "$RES"
 sed -i s/0.2/"$GS"/g "$RES"
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
+mkdir -p "$MODPATH"/Mods/HPS1/res/values-sw600dp-land/
+mkdir -p "$MODPATH"/Mods/HPS2/res/values-sw600dp-land/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-440dpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xhdpi/
 mkdir -p "$MODPATH"/Mods/Qtmp/res/values-xxhdpi/
@@ -220,6 +224,8 @@ mkdir "$MODPATH"/compiled2
 mkdir "$MODPATH"/compiled3
 mkdir "$MODPATH"/compiled6
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw900dp/
+cp -rf "$MODPATH"/Mods/HPS1/res/values/dimens.xml "$MODPATH"/Mods/HPS1/res/values-sw600dp-land/
+cp -rf "$MODPATH"/Mods/HPS2/res/values/dimens.xml "$MODPATH"/Mods/HPS2/res/values-sw600dp-land/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-sw600dp/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-440dpi/
 cp -rf "$MODPATH"/Mods/Qtmp/res/values/dimens.xml "$MODPATH"/Mods/Qtmp/res/values-xhdpi/
@@ -285,9 +291,11 @@ rm -rf "$MODPATH"/unsigned2.apk
 rm -rf "$MODPATH"/unsigned3.apk
 rm -rf "$MODPATH"/unsigned6.apk
 
-ui_print ""
-ui_print "     If you're using KernelSU, add SystemUI to the root list"
-ui_print "     and make sure unmount modules is disabled to it"
+if [ -d "/data/adb/ksud" ]; then
+    ui_print ""
+    ui_print "     For KernelSU make sure to give SystemUI superuser access"
+    ui_print "     or make sure unmount modules is disabled to SystemUI in the superuser menu"
+fi
 
 
 ui_print "     Complete"
