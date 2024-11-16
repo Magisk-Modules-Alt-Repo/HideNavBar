@@ -49,6 +49,12 @@ This Magisk Module lets you tweak the appearence of Android 10-14's navigation b
 
 ## Changelog
 
+
+### v27.5
+- Android 15 QPR2 support
+
+- Updated English and Chinese translations
+
 ### v27.3
 - Fix the disable bottom gestures option not working (as it was conflicting with the gesture sensitivity option)
 
