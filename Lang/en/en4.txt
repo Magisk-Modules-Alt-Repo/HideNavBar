@@ -1,5 +1,8 @@
 
-        Pick the gesture sensitivity.
+        How sensitive the home/recents gestures should be?
+
+        (High sensitivity may cause the gestures
+        to be triggered by accident when typing)
 
         Vol+ = Low (Module Default) , Vol- = High (Android's Default)
 

@@ -1,4 +1,4 @@
 
-		Hide pill and keep keyboard height/space?
+		Hide gesture hint/pill but keep space under the keyboard?
 
 		Vol+ = Yes , Vol- = No (default)

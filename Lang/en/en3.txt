@@ -1,4 +1,4 @@
 
-        Reduce the size of the keyboard bar?
+        Reduce the space under the keyboard?
 
         Vol+ = Yes , Vol- = No (default)

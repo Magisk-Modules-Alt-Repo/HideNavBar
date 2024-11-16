@@ -1,4 +1,5 @@
 
-        Hide keyboard buttons (Back/Switch keyboard)?
+        Hide the buttons under the keyboard?
+        (Back button/Switch keyboard button)
 
         Vol+ = Yes , Vol- = No
