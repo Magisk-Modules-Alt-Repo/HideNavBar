@@ -24,8 +24,8 @@ This Magisk Module lets you tweak the appearence of Android 10-14's navigation b
 - [Telegram Channel](https://t.me/danmgk)
 - [PayPal](https://www.paypal.com/donate/?hosted_button_id=BJAJW4755BXFY)
 - Revolut Tag @danielem47
-- Litecoin (ltc1qlens88rlj8vpjt9r4kt2mqrma6nq3v3aylgef6)
-- Etherium (0x2c8d02EA7202eaf9DAC14af6ABc178Cb34Cd3f00)
+- Litecoin/LTC (ltc1qlens88rlj8vpjt9r4kt2mqrma6nq3v3aylgef6)
+- Etherium/ETH (0x2c8d02EA7202eaf9DAC14af6ABc178Cb34Cd3f00)
 
 ### Translation
  If you wish to have the installer translated to your language send me a text file containing all lines (inside ui_print in common/install.sh) either on Github or my Email, omit special symbols such as á,ã
